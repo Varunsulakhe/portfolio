@@ -730,12 +730,15 @@ img {
   row-gap: 3.5rem;
 }
 
-.badge__img {
-  width: 100px;
-  border-radius: .3rem;
-  justify-self: left;
-  align-self: left;
-} 
+.footer-image-badge {
+    padding: 0 6rem 3rem;
+    max-width: 91.71429rem;
+    margin: 0 auto;
+}
+
+.footer-image-badge img {
+    max-width: 100px;
+}
   
 
 .footer__bg {
