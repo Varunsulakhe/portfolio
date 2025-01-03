@@ -732,9 +732,9 @@ img {
 
 .badge__img {
   width: 100px;
-  border-radius: .5rem;
-  justify-self: center;
-  align-self: center;
+  border-radius: .3rem;
+  justify-self: left;
+  align-self: left;
 } 
   
 
