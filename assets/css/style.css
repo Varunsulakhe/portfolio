@@ -732,9 +732,7 @@ img {
 
 .footer-image-badge {
   width: 100px;
-  border-radius: .5rem;
-  justify-self: left;
-  align-self: left;
+  justify-self: center;
 }
   
 .footer__bg {
