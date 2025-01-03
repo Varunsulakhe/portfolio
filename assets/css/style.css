@@ -731,16 +731,12 @@ img {
 }
 
 .footer-image-badge {
-    padding: 0 6rem 3rem;
-    max-width: 91.71429rem;
-    margin: 0 auto;
-}
-
-.footer-image-badge img {
-    max-width: 100px;
+  width: 100px;
+  border-radius: .5rem;
+  justify-self: left;
+  align-self: left;
 }
   
-
 .footer__bg {
   background-color: var(--first-color);
   padding: 2rem 0 3rem;
