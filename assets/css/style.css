@@ -721,7 +721,7 @@ img {
   padding: .25rem .5rem .5rem 0;
 }
 /*==================== FORM SUBMIT ====================*/
-.button__icon {
+.button__submit {
   --primary: #ff5569;
   --neutral-1: #f7f8f7;
   --neutral-2: #e7e7e7;
@@ -746,17 +746,17 @@ img {
   font-size: 18px;
   font-weight: 600;
 }
-.button__icon:hover {
+.button__submit:hover {
   transform: scale(1.02);
   box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.3),
     0 15px 30px rgba(0, 0, 0, 0.3), 0 10px 3px -3px rgba(0, 0, 0, 0.04);
 }
-.button__icon:active {
+.button__submit:active {
   transform: scale(1);
   box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.3),
     0 10px 3px -3px rgba(0, 0, 0, 0.2);
 }
-.button__icon:after {
+.button__submit:after {
   content: "";
   position: absolute;
   inset: 0;
@@ -768,11 +768,11 @@ img {
   z-index: 0;
   transition: all 0.4s ease;
 }
-.button__icon:hover::after {
+.button__submit:hover::after {
   transform: scale(1.05, 1.1);
   box-shadow: inset 0 -1px 3px 0 rgba(255, 255, 255, 1);
 }
-.button__icon::before {
+.button__submit::before {
   content: "";
   inset: 7px 6px 6px 6px;
   position: absolute;
@@ -833,10 +833,10 @@ img {
     transform: rotate(360deg);
   }
 }
-.button__icon:hover .outline {
+.button__submit:hover .outline {
   opacity: 1;
 }
-.button__icon:hover .outline::before {
+.button__submit:hover .outline::before {
   animation-play-state: running;
 }
 
@@ -846,11 +846,11 @@ img {
   opacity: 0;
   animation: slideDown 0.8s ease forwards calc(var(--i) * 0.03s);
 }
-.button__icon:hover p span {
+.button__submit:hover p span {
   opacity: 1;
   animation: wave 0.5s ease forwards calc(var(--i) * 0.02s);
 }
-.button:focus p span {
+.button__submit:focus p span {
   opacity: 1;
   animation: disapear 0.6s ease forwards calc(var(--i) * 0.03s);
 }
@@ -906,13 +906,13 @@ img {
 .state--default .icon svg {
   animation: land 0.6s ease forwards;
 }
-.button__icon:hover .state--default .icon {
+.button__submit:hover .state--default .icon {
   transform: rotate(45deg) scale(1.25);
 }
-.button__icon:focus .state--default svg {
+.button__submit:focus .state--default svg {
   animation: takeOff 0.8s linear forwards;
 }
-.button__icon:focus .state--default .icon {
+.button__submit:focus .state--default .icon {
   transform: rotate(0) scale(1.25);
 }
 @keyframes takeOff {
@@ -951,7 +951,7 @@ img {
   left: -5px;
   background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5));
 }
-.button__icon:focus .state--default .icon:before {
+.button__submit:focus .state--default .icon:before {
   animation: contrail 0.8s linear forwards;
 }
 @keyframes contrail {
@@ -989,17 +989,17 @@ img {
   transform: scale(1.25);
   margin-right: 8px;
 }
-.button__icon:focus .state--default {
+.button__submit:focus .state--default {
   position: absolute;
 }
-.button__icon:focus .state--sent {
+.button__submit:focus .state--sent {
   display: flex;
 }
-.button__icon:focus .state--sent span {
+.button__submit:focus .state--sent span {
   opacity: 0;
   animation: slideDown 0.8s ease forwards calc(var(--i) * 0.2s);
 }
-.button__icon:focus .state--sent .icon svg {
+.button__submit:focus .state--sent .icon svg {
   opacity: 0;
   animation: appear 1.2s ease forwards 0.8s;
 }
