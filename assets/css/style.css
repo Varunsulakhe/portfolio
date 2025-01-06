@@ -1072,7 +1072,7 @@ img {
   display: flex;
   flex-direction: column;
   max-width: 200px;
-  margin-left: -50px;
+  margin-left: -150px;
   row-gap: 1.5rem;
 }
 
