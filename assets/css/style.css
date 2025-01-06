@@ -1055,7 +1055,7 @@ img {
   
 .footer__bg {
   background-color: var(--first-color);
-  padding: 2rem 0 3rem;
+  padding: 2rem 0 1rem;
 }
 
 .footer__title {
@@ -1065,11 +1065,14 @@ img {
 
 .footer__subtitle {
   font-size: var(--small-font-size);
+  white-space: nowrap;
 }
 
 .footer__links {
   display: flex;
   flex-direction: column;
+  max-width: 200px;
+  margin-left: -50px;
   row-gap: 1.5rem;
 }
 
@@ -1078,8 +1081,9 @@ img {
 }
 
 .footer__social {
+  
   font-size: 1.25rem;
-  margin-right: var(--mb-1-5);
+  margin-right: 4px;
 }
 
 footer .footer__social a:hover {
@@ -1381,7 +1385,7 @@ footer .footer__social a:hover {
   }
 
   .footer__container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 3fr);
   }
 
   .footer__bg {
