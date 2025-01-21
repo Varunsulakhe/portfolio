@@ -1083,7 +1083,7 @@ img {
 .footer__social {
   
   font-size: 1.25rem;
-  margin-right: var(--mb-0-3);
+  margin-right: var(--mb-1-5);
 }
 
 footer .footer__social a:hover {
