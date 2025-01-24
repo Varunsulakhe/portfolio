@@ -1072,7 +1072,7 @@ img {
   display: flex;
   flex-direction: column;
   max-width: 200px;
-  margin-left: -50px;
+  margin-left: -30px;
   row-gap: 1.5rem;
 }
 
@@ -1082,7 +1082,7 @@ img {
 
 .footer__social {
   font-size: 1.25rem;
-  margin-right: var(--mb-0-2);
+  margin-right: var(--mb-0-3);
 }
 
 footer .footer__social a:hover {
