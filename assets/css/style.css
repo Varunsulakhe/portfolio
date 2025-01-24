@@ -1081,9 +1081,8 @@ img {
 }
 
 .footer__social {
-  
   font-size: 1.25rem;
-  margin-right: var(--mb-0-3);
+  margin-right: var(--mb-0-2);
 }
 
 footer .footer__social a:hover {
