@@ -390,6 +390,7 @@ img {
 .button--flex {
   display: inline-flex;
   align-items: center;
+  width: 180px;
 }
 
 button.button {
