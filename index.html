@@ -13,7 +13,98 @@
     body {
       background: radial-gradient(circle at 10% 20%, rgba(10,20,30,1) 0%, #0a0c10 100%);
       scroll-behavior: smooth;
+      transition: background 0.3s ease, color 0.3s ease;
     }
+    /* Light mode styles */
+    body.light-mode {
+      background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+      color: #0f172a !important;
+    }
+    body.light-mode .glass-card {
+      background: rgba(255, 255, 255, 0.8) !important;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 150, 200, 0.3);
+      color: #0f172a !important;
+    }
+    body.light-mode .glass-card:hover {
+      border-color: #0891b2;
+      box-shadow: 0 20px 35px -12px rgba(0, 150, 200, 0.2);
+    }
+    body.light-mode .skill-tag {
+      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      border-left-color: #0891b2;
+      color: #0f172a;
+    }
+    body.light-mode .btn-cyber {
+      background: linear-gradient(95deg, #0891b2, #06b6d4);
+    }
+    body.light-mode .text-gray-300,
+    body.light-mode .text-gray-200,
+    body.light-mode .text-gray-400,
+    body.light-mode p:not(.text-cyan-300),
+    body.light-mode li,
+    body.light-mode .home__description,
+    body.light-mode .about__description,
+    body.light-mode .portfolio__description,
+    body.light-mode .footer p,
+    body.light-mode .contact__subtitle,
+    body.light-mode span:not(.text-cyan-300):not(.text-cyan-400) {
+      color: #1e293b !important;
+    }
+    body.light-mode .text-cyan-300,
+    body.light-mode .text-cyan-400,
+    body.light-mode .text-cyan-200\/80 {
+      color: #0e7490 !important;
+    }
+    body.light-mode .bg-cyan-900\/40,
+    body.light-mode .bg-cyan-800\/50,
+    body.light-mode .bg-cyan-950\/30 {
+      background: rgba(0, 150, 200, 0.15) !important;
+    }
+    body.light-mode .border-cyan-400,
+    body.light-mode .border-cyan-500\/30 {
+      border-color: #0891b2 !important;
+    }
+    body.light-mode .bg-gray-800\/60 {
+      background: rgba(100, 116, 139, 0.15) !important;
+      color: #0f172a !important;
+    }
+    body.light-mode .bg-black\/30,
+    body.light-mode .bg-black\/50 {
+      background: rgba(0, 0, 0, 0.05) !important;
+    }
+    body.light-mode .contact__input {
+      background: white;
+      border-color: #cbd5e1;
+      color: #0f172a;
+    }
+    body.light-mode .contact__input:focus {
+      border-color: #0891b2;
+    }
+    body.light-mode .contact__label {
+      color: #0f172a;
+    }
+    body.light-mode .border-t,
+    body.light-mode .border-gray-800 {
+      border-color: #cbd5e1 !important;
+    }
+    body.light-mode .hero-gradient {
+      background: radial-gradient(ellipse at 30% 40%, rgba(0,150,200,0.08), transparent 70%);
+    }
+    body.light-mode .bg-cyan-600\/80 {
+      background: rgba(8, 145, 178, 0.8);
+    }
+    body.light-mode .bg-gray-800 {
+      background: #e2e8f0 !important;
+    }
+    body.light-mode .bg-gray-800:hover {
+      background: #cbd5e1 !important;
+    }
+    body.light-mode .bg-gray-800 a,
+    body.light-mode .bg-gray-800 i {
+      color: #0f172a !important;
+    }
+    /* Default dark mode */
     .glass-card {
       background: rgba(15, 25, 35, 0.65);
       backdrop-filter: blur(12px);
@@ -49,7 +140,6 @@
     .hero-gradient {
       background: radial-gradient(ellipse at 30% 40%, rgba(0,180,220,0.15), transparent 70%);
     }
-    /* Form inputs */
     .contact__input {
       background: rgba(0,0,0,0.5);
       border: 1px solid rgba(0, 255, 255, 0.3);
@@ -71,11 +161,6 @@
       font-weight: 500;
       color: #a0f0ff;
     }
-    .button--flex {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
   </style>
 </head>
 <body class="text-gray-200">
@@ -84,7 +169,7 @@
   <nav class="fixed w-full z-50 bg-black/50 backdrop-blur-xl border-b border-cyan-500/30 shadow-lg">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
       <div class="flex justify-between items-center py-3">
-        <a href="#" class="text-2xl font-bold tracking-tighter bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">VARUN<span class="text-white">.sec</span></a>
+        <a href="#" class="text-2xl font-bold tracking-tighter bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">VARUN<span class="text-white">.SEC</span></a>
         <div class="hidden md:flex space-x-8 text-sm font-semibold">
           <a href="#home" class="hover:text-cyan-300 transition">Home</a>
           <a href="#experience" class="hover:text-cyan-300 transition">Experience</a>
@@ -94,7 +179,7 @@
         </div>
         <div class="flex items-center gap-3">
           <button id="darkModeToggle" class="text-xl text-cyan-300 hover:text-white transition"><i class="fas fa-moon"></i></button>
-          <a href="#contact" class="hidden sm:inline-block bg-cyan-600/80 hover:bg-cyan-500 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm transition">Resume</a>
+          <a href="assets/pdf/Varun_Sulakhe_Resume.pdf" download class="hidden sm:inline-block bg-cyan-600/80 hover:bg-cyan-500 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm transition">Resume</a>
         </div>
       </div>
     </div>
@@ -105,7 +190,10 @@
     <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
       <div class="flex-1 text-center lg:text-left">
         <div class="inline-block px-4 py-1 rounded-full bg-cyan-900/40 text-cyan-300 text-xs font-mono border border-cyan-500/40 mb-5">Certified Ethical Hacker (CEH v12)</div>
-        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight"><span class="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">Varun Sulakhe</span></h1>
+        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight">
+          <span class="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">Varun</span><br>
+          <span class="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">Sulakhe</span>
+        </h1>
         <p class="text-xl text-cyan-200/80 mt-3 font-medium">Cybersecurity Engineer | VAPT Engineer | Red Teaming</p>
         <p class="text-gray-300 max-w-xl mt-5 leading-relaxed">1.7+ years hands‑on offensive security, 20+ VAPT assessments. I break things ethically to build stronger defenses.</p>
         <div class="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
@@ -122,9 +210,7 @@
       <!-- Your Image Container -->
       <div class="flex-1 flex justify-center">
         <div class="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full border-4 border-cyan-500/30 bg-gradient-to-br from-cyan-900/40 to-transparent flex items-center justify-center backdrop-blur-md shadow-2xl overflow-hidden">
-          <!-- Replace 'assets/img/your-photo.jpg' with your actual image path -->
           <img src="assets/img/Varun Sulakhe.jpeg" alt="Varun Sulakhe" class="w-full h-full object-cover rounded-full">
-          <!-- Fallback icon if image not found -->
           <div class="absolute -bottom-3 -right-3 bg-cyan-500 rounded-full p-2"><i class="fas fa-terminal text-black"></i></div>
         </div>
       </div>
@@ -306,7 +392,6 @@
       </div>
       <div class="glass-card p-6 md:p-8 rounded-2xl">
         <div class="grid md:grid-cols-2 gap-10">
-          <!-- Left: Contact Info -->
           <div>
             <h3 class="text-2xl font-bold mb-4">Let's Connect</h3>
             <p class="text-gray-300 mb-6">Red team assessments, VAPT consulting, or just a security chat — reach out.</p>
@@ -321,30 +406,15 @@
               <a href="https://x.com/VarunSulakhe" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition"><i class="fab fa-twitter text-xl"></i></a>
             </div>
           </div>
-          <!-- Right: Web3Forms Form -->
           <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
             <input type="hidden" name="access_key" value="892e6cfe-1606-4475-80f9-f3092a218e98">
             <div class="grid md:grid-cols-2 gap-4">
-              <div>
-                <label class="contact__label">Name</label>
-                <input type="text" name="name" class="contact__input" required>
-              </div>
-              <div>
-                <label class="contact__label">Email</label>
-                <input type="email" name="email" class="contact__input" required>
-              </div>
+              <div><label class="contact__label">Name</label><input type="text" name="name" class="contact__input" required></div>
+              <div><label class="contact__label">Email</label><input type="email" name="email" class="contact__input" required></div>
             </div>
-            <div>
-              <label class="contact__label">Project / Subject</label>
-              <input type="text" name="project" class="contact__input" required>
-            </div>
-            <div>
-              <label class="contact__label">Message</label>
-              <textarea name="message" rows="5" class="contact__input" required></textarea>
-            </div>
-            <button type="submit" class="btn-cyber w-full md:w-auto px-6 py-3 rounded-xl text-white font-bold shadow-lg flex items-center justify-center gap-2 transition">
-              Send Message <i class="fas fa-paper-plane"></i>
-            </button>
+            <div><label class="contact__label">Project / Subject</label><input type="text" name="project" class="contact__input" required></div>
+            <div><label class="contact__label">Message</label><textarea name="message" rows="5" class="contact__input" required></textarea></div>
+            <button type="submit" class="btn-cyber w-full md:w-auto px-6 py-3 rounded-xl text-white font-bold shadow-lg flex items-center justify-center gap-2 transition">Send Message <i class="fas fa-paper-plane"></i></button>
           </form>
         </div>
       </div>
@@ -355,34 +425,13 @@
     <p>© 2025 Varun Sulakhe — Ethical Hacker | Built with <i class="fas fa-heart text-cyan-500"></i> for offensive security</p>
   </footer>
 
-  <!-- Dark Mode Toggle -->
+  <!-- Dark Mode Toggle (fully fixed) -->
   <script>
     const toggle = document.getElementById('darkModeToggle');
-    let dark = true;
     toggle.addEventListener('click', () => {
-      if(dark) {
-        document.body.style.background = "#f0f4f8";
-        document.body.style.color = "#111";
-        document.querySelectorAll('.glass-card').forEach(card => {
-          card.style.background = "rgba(255,255,240,0.8)";
-          card.style.backdropFilter = "blur(8px)";
-          card.style.borderColor = "#0ff";
-          card.style.color = "#111";
-        });
-        dark = false;
-        toggle.innerHTML = '<i class="fas fa-sun"></i>';
-      } else {
-        document.body.style.background = "";
-        document.body.style.color = "";
-        document.querySelectorAll('.glass-card').forEach(card => {
-          card.style.background = "rgba(15, 25, 35, 0.65)";
-          card.style.backdropFilter = "blur(12px)";
-          card.style.borderColor = "rgba(0, 255, 255, 0.15)";
-          card.style.color = "";
-        });
-        dark = true;
-        toggle.innerHTML = '<i class="fas fa-moon"></i>';
-      }
+      document.body.classList.toggle('light-mode');
+      const isLight = document.body.classList.contains('light-mode');
+      toggle.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     });
   </script>
 </body>
