@@ -49,6 +49,33 @@
     .hero-gradient {
       background: radial-gradient(ellipse at 30% 40%, rgba(0,180,220,0.15), transparent 70%);
     }
+    /* Form inputs */
+    .contact__input {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 1rem;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      color: white;
+      transition: 0.2s;
+    }
+    .contact__input:focus {
+      outline: none;
+      border-color: #0ff;
+      box-shadow: 0 0 8px rgba(0,255,255,0.3);
+    }
+    .contact__label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #a0f0ff;
+    }
+    .button--flex {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
   </style>
 </head>
 <body class="text-gray-200">
@@ -73,13 +100,13 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (with your image) -->
   <section id="home" class="relative pt-32 pb-20 px-5 overflow-hidden hero-gradient">
     <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
       <div class="flex-1 text-center lg:text-left">
         <div class="inline-block px-4 py-1 rounded-full bg-cyan-900/40 text-cyan-300 text-xs font-mono border border-cyan-500/40 mb-5">Certified Ethical Hacker (CEH v12)</div>
         <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight"><span class="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">Varun Sulakhe</span></h1>
-        <p class="text-xl text-cyan-200/80 mt-3 font-medium">Cybersecurity Engineer | VAPT Specialist | Red Teaming</p>
+        <p class="text-xl text-cyan-200/80 mt-3 font-medium">Cybersecurity Engineer | VAPT Engineer | Red Teaming</p>
         <p class="text-gray-300 max-w-xl mt-5 leading-relaxed">1.7+ years hands‑on offensive security, 20+ VAPT assessments. I break things ethically to build stronger defenses.</p>
         <div class="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
           <a href="#contact" class="btn-cyber px-6 py-3 rounded-xl text-white font-bold shadow-lg flex items-center gap-2"><i class="fas fa-paper-plane"></i> Contact Me</a>
@@ -92,9 +119,12 @@
           <span><i class="fas fa-phone-alt text-cyan-400 mr-2"></i> +91-6360340775</span>
         </div>
       </div>
+      <!-- Your Image Container -->
       <div class="flex-1 flex justify-center">
-        <div class="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full border-4 border-cyan-500/30 bg-gradient-to-br from-cyan-900/40 to-transparent flex items-center justify-center backdrop-blur-md shadow-2xl">
-          <i class="fas fa-shield-haltered text-8xl text-cyan-300/70"></i>
+        <div class="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full border-4 border-cyan-500/30 bg-gradient-to-br from-cyan-900/40 to-transparent flex items-center justify-center backdrop-blur-md shadow-2xl overflow-hidden">
+          <!-- Replace 'assets/img/your-photo.jpg' with your actual image path -->
+          <img src="assets/img/your-photo.jpg" alt="Varun Sulakhe" class="w-full h-full object-cover rounded-full">
+          <!-- Fallback icon if image not found -->
           <div class="absolute -bottom-3 -right-3 bg-cyan-500 rounded-full p-2"><i class="fas fa-terminal text-black"></i></div>
         </div>
       </div>
@@ -102,15 +132,15 @@
     <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
   </section>
 
-  <!-- Profile Summary (exact from resume) -->
+  <!-- Profile Summary -->
   <div class="max-w-5xl mx-auto px-5 -mt-8 relative z-10">
     <div class="glass-card p-6 lg:p-8 rounded-2xl">
       <h2 class="text-2xl font-bold flex items-center gap-2"><i class="fas fa-user-secret text-cyan-400"></i> Profile Summary</h2>
-      <p class="text-gray-300 mt-3 leading-relaxed">Certified Ethical Hacker with 1.7+ years of hands-on experience in VAPT across web and network environments. Successfully executed 20+ security assessments, uncovering critical vulnerabilities and delivering actionable remediation. Skilled in offensive security, red teaming, and threat detection using tools like Burp Suite, Metasploit, Nmap and Wazuh. Focused about strengthening cyber defenses through real-world attack simulations and risk-based security strategies.</p>
+      <p class="text-gray-300 mt-3 leading-relaxed">Certified Ethical Hacker with 1.7+ years of hands-on experience in VAPT across web and network environments. Successfully executed 20+ security assessments, uncovering critical vulnerabilities and delivering actionable remediation. Skilled in offensive security, red teaming using tools like Burp Suite, Metasploit, Nessus, Nmap and OWASP ZAP. Focused about strengthening cyber defenses through real-world attack simulations and risk-based security strategies.</p>
     </div>
   </div>
 
-  <!-- Experience Section (exact resume content) -->
+  <!-- Experience Section -->
   <section id="experience" class="py-20 px-5">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
@@ -118,7 +148,6 @@
         <p class="text-gray-400 mt-3">Real-world impact & achievements</p>
       </div>
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- VAPT Role -->
         <div class="glass-card p-6 rounded-2xl">
           <div class="flex justify-between items-start flex-wrap gap-2">
             <h3 class="text-xl font-bold text-cyan-300">Cyber Security Engineer</h3>
@@ -137,20 +166,19 @@
             <p class="text-xs uppercase tracking-wide text-cyan-400 font-semibold">🏆 Key Achievements:</p>
             <ul class="text-sm space-y-1 mt-1">
               <li>✓ Participated in <strong>CERT-In</strong> web application security assessment, identifying <strong>30+ vulnerabilities</strong>.</li>
-              <li>✓ Conducted <strong>Nessus</strong> Professional training for <strong>CPRI</strong> (Central Power Research Institute) Security Team – installation, configuration, scanning methodologies, enterprise VM best practices.</li>
+              <li>✓ Conducted <strong>Nessus</strong> Professional training for <strong>CPRI</strong> (Central Power Research Institute) Security Team.</li>
               <li>✓ Performed onsite network VAPT assessments to identify exploitable vulnerabilities across internal infrastructure.</li>
               <li>✓ Enabled organizations to meet compliance standards by mitigating high‑risk vulnerabilities.</li>
             </ul>
           </div>
         </div>
-        <!-- Wazuh Security Monitoring -->
         <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
           <div>
             <h3 class="text-xl font-bold text-cyan-300"><i class="fas fa-chart-line mr-2"></i> Wazuh Security Monitoring</h3>
             <ul class="mt-3 space-y-2 text-sm text-gray-200 list-disc list-inside">
               <li>Deployed and configured Wazuh for SIEM, log monitoring, and threat detection.</li>
-              <li>Developed custom rules to detect specific threats and ensure compliance with organizational policies.</li>
-              <li>Integrated Wazuh with other security tools to improve incident response capabilities.</li>
+              <li>Developed custom rules to detect specific threats and ensure compliance.</li>
+              <li>Integrated Wazuh with other security tools to improve incident response.</li>
               <li>Improved system visibility through comprehensive logging and monitoring.</li>
               <li>Streamlined security operations through tool integration and automation.</li>
             </ul>
@@ -164,7 +192,7 @@
     </div>
   </section>
 
-  <!-- Projects & Tools Developed (exact from resume) -->
+  <!-- Projects & Tools -->
   <section id="projects" class="py-16 px-5 bg-black/20">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
@@ -172,30 +200,28 @@
         <p class="text-gray-400 mt-2">Automation, reconnaissance, and exploitation tools built for bug bounty & VAPT</p>
       </div>
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Recon_Ninja -->
         <div class="glass-card p-6 rounded-2xl transition-all">
           <div class="flex items-center gap-3 flex-wrap">
             <i class="fab fa-python text-3xl text-cyan-300"></i>
             <h3 class="text-2xl font-bold">Recon_Ninja</h3>
             <span class="text-xs bg-cyan-900 px-2 py-1 rounded-full">Advanced Bug Bounty Recon Automation</span>
           </div>
-          <p class="text-gray-300 mt-3">Python-based reconnaissance tool integrating Subfinder, httpx, waybackurls, gau, gf, nuclei, katana, and custom filters. Supports single domain and bulk recon mode (-d or -l). Generates vulnerability findings using custom Nuclei templates (-t) and organizes results into structured output directories (-o). Automates subdomain enumeration, endpoint discovery, probing, filtering, and vulnerability scanning.</p>
+          <p class="text-gray-300 mt-3">Python-based reconnaissance tool integrating Subfinder, httpx, waybackurls, gau, gf, nuclei, katana, and custom filters. Supports single domain and bulk recon mode. Generates vulnerability findings using custom Nuclei templates.</p>
           <div class="flex flex-wrap gap-2 mt-4">
             <span class="text-xs bg-gray-800 px-2 py-1 rounded">#multithreading</span>
             <span class="text-xs bg-gray-800 px-2 py-1 rounded">#bulk-recon</span>
             <span class="text-xs bg-gray-800 px-2 py-1 rounded">#nuclei-templates</span>
           </div>
-          <div class="mt-5 flex gap-4">
+          <div class="mt-5">
             <a href="https://github.com/Varunsulakhe/Recon_Ninja" target="_blank" class="text-cyan-300 hover:text-white text-sm"><i class="fab fa-github"></i> GitHub Repo</a>
           </div>
         </div>
-        <!-- HTML Injection Scanner -->
         <div class="glass-card p-6 rounded-2xl">
           <div class="flex items-center gap-3">
             <i class="fas fa-code-branch text-3xl text-cyan-300"></i>
             <h3 class="text-2xl font-bold">HTML Injection Scanner</h3>
           </div>
-          <p class="text-gray-300 mt-3">CLI-based Python tool designed to detect HTML Injection vulnerabilities using crawling, payload fuzzing, and filtering. Supports crawling (--crawl) and deep crawling (--deep) up to 200 URLs. Allows custom payloads (-p). Multi-threading support (-t). Exports results in JSON or CSV for reporting (-o).</p>
+          <p class="text-gray-300 mt-3">CLI-based Python tool designed to detect HTML Injection vulnerabilities using crawling, payload fuzzing, and filtering. Supports deep crawling (up to 200 URLs), custom payloads, multi-threading, and JSON/CSV export.</p>
           <div class="flex flex-wrap gap-2 mt-4">
             <span class="text-xs bg-gray-800 px-2 py-1 rounded">#custom-payloads</span>
             <span class="text-xs bg-gray-800 px-2 py-1 rounded">#deep-crawl</span>
@@ -206,9 +232,8 @@
           </div>
         </div>
       </div>
-      <!-- Complete Arsenal List -->
       <div class="mt-8 glass-card p-5 rounded-2xl">
-        <h3 class="text-lg font-semibold flex items-center gap-2"><i class="fas fa-tools text-cyan-400"></i> Full Security Arsenal (as per resume)</h3>
+        <h3 class="text-lg font-semibold flex items-center gap-2"><i class="fas fa-tools text-cyan-400"></i> Full Security Arsenal</h3>
         <div class="flex flex-wrap gap-2 mt-3 text-sm">
           <span class="bg-gray-800/60 px-3 py-1 rounded-full">Burp Suite</span><span class="bg-gray-800/60 px-3 py-1 rounded-full">Nmap</span><span class="bg-gray-800/60 px-3 py-1 rounded-full">Nikto</span>
           <span class="bg-gray-800/60 px-3 py-1 rounded-full">Metasploit</span><span class="bg-gray-800/60 px-3 py-1 rounded-full">OWASP ZAP</span><span class="bg-gray-800/60 px-3 py-1 rounded-full">SQLMAP</span>
@@ -224,11 +249,10 @@
     </div>
   </section>
 
-  <!-- Skills + Certifications + Education (exact resume) -->
+  <!-- Skills + Certifications + Education -->
   <section id="skills" class="py-20 px-5">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Technical & Soft Skills -->
         <div class="glass-card p-6 rounded-2xl">
           <h3 class="text-2xl font-bold mb-4"><i class="fas fa-microchip text-cyan-400"></i> Technical Skills</h3>
           <div class="flex flex-wrap gap-2">
@@ -250,7 +274,6 @@
             </div>
           </div>
         </div>
-        <!-- Certifications & Education & Languages -->
         <div class="glass-card p-6 rounded-2xl space-y-6">
           <div>
             <h3 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-certificate text-cyan-400"></i> Certifications</h3>
@@ -274,20 +297,55 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 px-5 bg-gradient-to-t from-black/60 to-transparent">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="glass-card p-8 rounded-3xl">
-        <h2 class="text-3xl font-bold">Let’s Secure <span class="text-cyan-300">Your Infrastructure</span></h2>
-        <p class="text-gray-300 mt-2">Red team assessments, VAPT consulting, or just a security chat — reach out.</p>
-        <div class="mt-6 flex flex-wrap justify-center gap-6 text-lg">
-          <div><i class="far fa-envelope text-cyan-400"></i> varunsulakhe564@gmail.com</div>
-          <div><i class="fas fa-phone-alt text-cyan-400"></i> +91-6360340775</div>
-        </div>
-        <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <a href="https://github.com/Varunsulakhe" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-5 py-2 rounded-full transition"><i class="fab fa-github mr-2"></i> GitHub</a>
-          <a href="https://varunsulakhe.github.io/portfolio/" target="_blank" class="bg-gray-800 hover:bg-gray-700 px-5 py-2 rounded-full transition"><i class="fas fa-globe mr-2"></i> Portfolio</a>
-          <a href="assets/pdf/Varun_Sulakhe_Resume.pdf" download class="bg-cyan-700 hover:bg-cyan-600 px-5 py-2 rounded-full transition"><i class="fas fa-file-alt mr-2"></i> Download Resume (PDF)</a>
+  <!-- Contact Section with Form -->
+  <section id="contact" class="py-16 px-5">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold"><span class="border-b-4 border-cyan-400 pb-1">Get In Touch</span></h2>
+        <p class="text-gray-400 mt-3">I'd love to hear about your next project</p>
+      </div>
+      <div class="glass-card p-6 md:p-8 rounded-2xl">
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- Left: Contact Info -->
+          <div>
+            <h3 class="text-2xl font-bold mb-4">Let's Connect</h3>
+            <p class="text-gray-300 mb-6">Red team assessments, VAPT consulting, or just a security chat — reach out.</p>
+            <div class="space-y-4">
+              <div class="flex items-center gap-4"><i class="far fa-envelope text-cyan-400 text-xl"></i><span>varunsulakhe564@gmail.com</span></div>
+              <div class="flex items-center gap-4"><i class="fas fa-phone-alt text-cyan-400 text-xl"></i><span>+91-6360340775</span></div>
+              <div class="flex items-center gap-4"><i class="fab fa-github text-cyan-400 text-xl"></i><span>github.com/Varunsulakhe</span></div>
+            </div>
+            <div class="mt-8 flex gap-4">
+              <a href="https://github.com/Varunsulakhe" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition"><i class="fab fa-github text-xl"></i></a>
+              <a href="https://www.linkedin.com/in/varun-sulakhe-7072b226a" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+              <a href="https://x.com/VarunSulakhe" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition"><i class="fab fa-twitter text-xl"></i></a>
+            </div>
+          </div>
+          <!-- Right: Web3Forms Form -->
+          <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+            <input type="hidden" name="access_key" value="892e6cfe-1606-4475-80f9-f3092a218e98">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="contact__label">Name</label>
+                <input type="text" name="name" class="contact__input" required>
+              </div>
+              <div>
+                <label class="contact__label">Email</label>
+                <input type="email" name="email" class="contact__input" required>
+              </div>
+            </div>
+            <div>
+              <label class="contact__label">Project / Subject</label>
+              <input type="text" name="project" class="contact__input" required>
+            </div>
+            <div>
+              <label class="contact__label">Message</label>
+              <textarea name="message" rows="5" class="contact__input" required></textarea>
+            </div>
+            <button type="submit" class="btn-cyber w-full md:w-auto px-6 py-3 rounded-xl text-white font-bold shadow-lg flex items-center justify-center gap-2 transition">
+              Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
         </div>
       </div>
     </div>
