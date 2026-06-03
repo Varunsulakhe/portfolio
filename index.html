@@ -184,19 +184,41 @@
     .tab-content.active-tab {
       display: block;
     }
-    /* Swiper overrides for glass cards */
-    .swiper {
-      width: 100%;
-      padding-bottom: 2rem;
-    }
-    .swiper-slide {
-      height: auto;
-    }
-    .swiper-button-next, .swiper-button-prev {
+    /* Swiper custom navigation for each slider */
+    .swiper-button-next-pro, .swiper-button-prev-pro,
+    .swiper-button-next-cert, .swiper-button-prev-cert {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(0,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: 0.2s;
       color: #0ff;
     }
-    body.light-mode .swiper-button-next, body.light-mode .swiper-button-prev {
+    .swiper-button-next-pro:hover, .swiper-button-prev-pro:hover,
+    .swiper-button-next-cert:hover, .swiper-button-prev-cert:hover {
+      background: rgba(0,255,255,0.5);
+    }
+    .swiper-button-next-pro { right: 10px; }
+    .swiper-button-prev-pro { left: 10px; }
+    .swiper-button-next-cert { right: 10px; }
+    .swiper-button-prev-cert { left: 10px; }
+    body.light-mode .swiper-button-next-pro, body.light-mode .swiper-button-prev-pro,
+    body.light-mode .swiper-button-next-cert, body.light-mode .swiper-button-prev-cert {
       color: #0891b2;
+      background: rgba(8,145,178,0.2);
+    }
+    .swiper-pagination-pro, .swiper-pagination-cert {
+      position: relative;
+      margin-top: 20px;
+      text-align: center;
     }
     .swiper-pagination-bullet-active {
       background: #0ff;
@@ -332,11 +354,10 @@
         <button class="tab-btn px-6 py-2 rounded-full border border-cyan-400 text-cyan-300 font-semibold transition" data-tab="tab3">🎓 Certificates</button>
       </div>
 
-      <!-- Tab Content 1: Professional Projects (Web VAPT + Infra VAPT swiper) -->
+      <!-- Tab 1: Professional Projects (Swiper with unique navigation) -->
       <div id="tab1" class="tab-content active-tab">
-        <div class="swiper professional-swiper">
+        <div class="swiper professional-swiper" style="position: relative; padding: 0 40px;">
           <div class="swiper-wrapper">
-            <!-- Web VAPT Slide -->
             <div class="swiper-slide">
               <div class="glass-card p-6 rounded-2xl h-full flex flex-col md:flex-row gap-6 items-center">
                 <img src="assets/img/Web_VAPT.jpg" alt="Web Application VAPT" class="w-full md:w-1/2 rounded-2xl object-cover">
@@ -347,7 +368,6 @@
                 </div>
               </div>
             </div>
-            <!-- Infra VAPT Slide -->
             <div class="swiper-slide">
               <div class="glass-card p-6 rounded-2xl h-full flex flex-col md:flex-row gap-6 items-center">
                 <img src="assets/img/Infra_ VAPT.png" alt="Infrastructure VAPT" class="w-full md:w-1/2 rounded-2xl object-cover">
@@ -359,16 +379,16 @@
               </div>
             </div>
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
+          <!-- Custom navigation for professional swiper -->
+          <div class="swiper-button-prev-pro"><i class="fas fa-chevron-left"></i></div>
+          <div class="swiper-button-next-pro"><i class="fas fa-chevron-right"></i></div>
+          <div class="swiper-pagination-pro"></div>
         </div>
       </div>
 
-      <!-- Tab Content 2: Personal Tools (Recon_Ninja & HTML Injection Scanner) -->
+      <!-- Tab 2: Personal Tools (Grid) -->
       <div id="tab2" class="tab-content">
         <div class="grid md:grid-cols-2 gap-8">
-          <!-- Recon Ninja -->
           <div class="glass-card p-6 rounded-2xl transition-all">
             <div class="flex items-center gap-3 flex-wrap">
               <i class="fab fa-python text-3xl text-cyan-300"></i>
@@ -385,7 +405,6 @@
               <a href="https://github.com/Varunsulakhe/Recon_Ninja" target="_blank" class="text-cyan-300 hover:text-white text-sm"><i class="fab fa-github"></i> Explore Tool →</a>
             </div>
           </div>
-          <!-- HTML Injection Scanner -->
           <div class="glass-card p-6 rounded-2xl">
             <div class="flex items-center gap-3">
               <i class="fas fa-code-branch text-3xl text-cyan-300"></i>
@@ -404,9 +423,9 @@
         </div>
       </div>
 
-      <!-- Tab Content 3: Certificates (CEH + Internship swiper) -->
+      <!-- Tab 3: Certificates (Swiper with unique navigation) -->
       <div id="tab3" class="tab-content">
-        <div class="swiper certificate-swiper">
+        <div class="swiper certificate-swiper" style="position: relative; padding: 0 40px;">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="glass-card p-6 rounded-2xl text-center">
@@ -425,15 +444,15 @@
               </div>
             </div>
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev-cert"><i class="fas fa-chevron-left"></i></div>
+          <div class="swiper-button-next-cert"><i class="fas fa-chevron-right"></i></div>
+          <div class="swiper-pagination-cert"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills + Certifications + Education (unchanged, but certificates already in tab) -->
+  <!-- Skills + Certifications + Education (unchanged) -->
   <section id="skills" class="py-20 px-5">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-2 gap-8">
@@ -524,7 +543,6 @@
     <p>© 2025 Varun Sulakhe — Ethical Hacker | Built with <i class="fas fa-heart text-cyan-500"></i> for offensive security</p>
   </footer>
 
-  <!-- Scripts: Swiper + Dark Mode + AJAX + Tabs -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     // Dark mode toggle
@@ -535,43 +553,53 @@
       toggle.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     });
 
-    // Tab switching logic
+    // Initialize Swipers with unique navigation/pagination
+    const professionalSwiper = new Swiper('.professional-swiper', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next-pro',
+        prevEl: '.swiper-button-prev-pro',
+      },
+      pagination: {
+        el: '.swiper-pagination-pro',
+        clickable: true,
+      },
+      spaceBetween: 30,
+      autoplay: { delay: 5000, disableOnInteraction: false },
+    });
+
+    const certificateSwiper = new Swiper('.certificate-swiper', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next-cert',
+        prevEl: '.swiper-button-prev-cert',
+      },
+      pagination: {
+        el: '.swiper-pagination-cert',
+        clickable: true,
+      },
+      spaceBetween: 30,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+    });
+
+    // Tab switching logic (reinitialise swipers when tab becomes visible)
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
-    
+
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const tabId = btn.getAttribute('data-tab');
-        // Remove active class from all buttons and contents
         tabBtns.forEach(b => b.classList.remove('active'));
         tabContents.forEach(c => c.classList.remove('active-tab'));
-        // Activate current
         btn.classList.add('active');
         document.getElementById(tabId).classList.add('active-tab');
         
-        // Reinitialize swipers when tab becomes visible (fixes dimension issues)
+        // Refresh swipers when their container becomes visible
         setTimeout(() => {
           if (tabId === 'tab1') professionalSwiper.update();
           if (tabId === 'tab3') certificateSwiper.update();
         }, 100);
       });
-    });
-
-    // Initialize Swipers
-    const professionalSwiper = new Swiper('.professional-swiper', {
-      loop: true,
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      spaceBetween: 30,
-      autoplay: { delay: 5000, disableOnInteraction: false }
-    });
-    
-    const certificateSwiper = new Swiper('.certificate-swiper', {
-      loop: true,
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      spaceBetween: 30,
-      autoplay: { delay: 4000, disableOnInteraction: false }
     });
 
     // AJAX form submission
