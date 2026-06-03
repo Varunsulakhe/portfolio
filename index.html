@@ -179,7 +179,8 @@
         </div>
         <div class="flex items-center gap-3">
           <button id="darkModeToggle" class="text-xl text-cyan-300 hover:text-white transition"><i class="fas fa-moon"></i></button>
-          <a href="assets/pdf/Varun_Sulakhe_Resume.pdf" download class="hidden sm:inline-block bg-cyan-600/80 hover:bg-cyan-500 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm transition">Resume</a>
+          <!-- View Resume - opens in new tab (no download) -->
+          <a href="assets/pdf/Varun_Sulakhe_Resume.pdf" target="_blank" class="hidden sm:inline-block bg-cyan-600/80 hover:bg-cyan-500 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm transition">View Resume</a>
         </div>
       </div>
     </div>
@@ -198,6 +199,7 @@
         <p class="text-gray-300 max-w-xl mt-5 leading-relaxed">1.7+ years hands‑on offensive security, 20+ VAPT assessments. I break things ethically to build stronger defenses.</p>
         <div class="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
           <a href="#contact" class="btn-cyber px-6 py-3 rounded-xl text-white font-bold shadow-lg flex items-center gap-2"><i class="fas fa-paper-plane"></i> Contact Me</a>
+          <!-- Download Resume (downloads the file) -->
           <a href="assets/pdf/Varun_Sulakhe_Resume.pdf" download class="border border-cyan-400 text-cyan-300 px-6 py-3 rounded-xl font-semibold hover:bg-cyan-950/50 transition flex items-center gap-2"><i class="fas fa-download"></i> Download Resume</a>
           <a href="https://github.com/Varunsulakhe" target="_blank" class="text-gray-300 bg-gray-800/50 p-3 rounded-full hover:text-cyan-300 transition"><i class="fab fa-github text-xl"></i></a>
           <a href="https://varunsulakhe.github.io/portfolio/" target="_blank" class="text-gray-300 bg-gray-800/50 p-3 rounded-full hover:text-cyan-300 transition"><i class="fas fa-briefcase"></i></a>
@@ -425,7 +427,7 @@
     <p>© 2025 Varun Sulakhe — Ethical Hacker | Built with <i class="fas fa-heart text-cyan-500"></i> for offensive security</p>
   </footer>
 
-  <!-- Dark Mode Toggle (fully fixed) -->
+  <!-- Dark Mode Toggle -->
   <script>
     const toggle = document.getElementById('darkModeToggle');
     toggle.addEventListener('click', () => {
