@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Varun Sulakhe | Cybersecurity Engineer & CEH v12</title>
-   <!-- Website Logo / Favicon -->
+  <!-- Website Logo / Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0c10'/><circle cx='50' cy='50' r='45' fill='%2300ffff'/><text x='50' y='72' text-anchor='middle' font-size='55' fill='%230a0c10' font-weight='bold'>V</text></svg>">
   <!-- Tailwind CSS + Font Awesome + Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -107,6 +107,26 @@
     body.light-mode .bg-gray-800 a,
     body.light-mode .bg-gray-800 i {
       color: #0f172a !important;
+    }
+    /* 3D Image Styles */
+    .image-3d {
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+      transition: transform 0.1s ease-out;
+      cursor: pointer;
+    }
+    .image-3d::after {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      background: radial-gradient(circle at center, rgba(0,255,255,0.3), transparent 70%);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .image-3d:hover::after {
+      opacity: 1;
     }
     /* Default dark mode */
     .glass-card {
@@ -249,7 +269,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with 3D Image -->
   <section id="home" class="relative pt-32 pb-20 px-5 overflow-hidden hero-gradient">
     <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
       <div class="flex-1 text-center lg:text-left">
@@ -271,10 +291,13 @@
           <span><i class="fas fa-phone-alt text-cyan-400 mr-2"></i> +91-6360340775</span>
         </div>
       </div>
+      <!-- 3D Profile Image Container -->
       <div class="flex-1 flex justify-center">
-        <div class="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full border-4 border-cyan-500/30 bg-gradient-to-br from-cyan-900/40 to-transparent flex items-center justify-center backdrop-blur-md shadow-2xl overflow-hidden">
-          <img src="assets/img/Varun Sulakhe.jpeg" alt="Varun Sulakhe" class="w-full h-full object-cover rounded-full">
-          <div class="absolute -bottom-3 -right-3 bg-cyan-500 rounded-full p-2"><i class="fas fa-terminal text-black"></i></div>
+        <div class="relative w-64 h-64 lg:w-80 lg:h-80 image-3d" id="profileImage3D">
+          <div class="w-full h-full rounded-full border-4 border-cyan-500/30 bg-gradient-to-br from-cyan-900/40 to-transparent backdrop-blur-md shadow-2xl overflow-hidden relative">
+            <img src="assets/img/Varun Sulakhe.jpeg" alt="Varun Sulakhe" class="w-full h-full object-cover rounded-full">
+            <div class="absolute -bottom-3 -right-3 bg-cyan-500 rounded-full p-2 z-10"><i class="fas fa-terminal text-black"></i></div>
+          </div>
         </div>
       </div>
     </div>
@@ -291,62 +314,63 @@
 
   <!-- Experience Section -->
   <section id="experience" class="py-20 px-5">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold"><span class="border-b-4 border-cyan-400 pb-1">Professional Experience</span></h2>
-      <p class="text-gray-400 mt-3">Real-world impact & achievements</p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Left Side: Cyber Security Engineer -->
-      <div class="glass-card p-6 rounded-2xl">
-        <div class="flex justify-between items-start flex-wrap gap-2">
-          <h3 class="text-xl font-bold text-cyan-300">Cyber Security Engineer</h3>
-          <span class="text-xs bg-cyan-800/50 px-3 py-1 rounded-full">Oct 2024 – Present</span>
-        </div>
-        <p class="text-gray-300 font-medium mt-1">Cyberjeet Pvt Ltd, Bengaluru</p>
-        <ul class="mt-4 space-y-2 text-sm text-gray-200 list-disc list-inside">
-          <li>Performed in-depth vulnerability assessments and penetration testing leveraging OWASP Top 10 methodologies.</li>
-          <li>Executed 20+ VAPT projects covering infrastructure and web applications.</li>
-          <li>Conducted manual & automated testing to uncover XSS, SQLi, CSRF, broken authentication.</li>
-          <li>Developed comprehensive vulnerability reports with PoC exploits and remediation strategies.</li>
-          <li>Executed VAPT across Web, Mobile, AWS EC2, Active Directory, and Network Infrastructure.</li>
-          <li>Used tools: Burp Suite, Nmap, Nikto, Metasploit, OWASP ZAP, SQLMAP, CrackMapExec, Mimikatz, Subfinder, httpx, Nuclei, Nessus, Qualys, Ettercap, Hashcat, Responder, Winpeas, Linpeas, Bloodhound, Impacket, Recon_Ninja, MobSF, jadx, Dex2jar, ADB, APKtool.</li>
-        </ul>
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold"><span class="border-b-4 border-cyan-400 pb-1">Professional Experience</span></h2>
+        <p class="text-gray-400 mt-3">Real-world impact & achievements</p>
       </div>
-
-      <!-- Right Side: Wazuh + Key Achievements -->
-      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-bold text-cyan-300"><i class="fas fa-chart-line mr-2"></i> Wazuh Security Monitoring</h3>
-          <ul class="mt-3 space-y-2 text-sm text-gray-200 list-disc list-inside">
-            <li>Deployed and configured Wazuh for SIEM, log monitoring, and threat detection.</li>
-            <li>Developed custom rules to detect specific threats and ensure compliance.</li>
-            <li>Integrated Wazuh with other security tools to improve incident response.</li>
-            <li>Improved system visibility through comprehensive logging and monitoring.</li>
-            <li>Streamlined security operations through tool integration and automation.</li>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Left Side: Cyber Security Engineer -->
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="flex justify-between items-start flex-wrap gap-2">
+            <h3 class="text-xl font-bold text-cyan-300">Cyber Security Engineer</h3>
+            <span class="text-xs bg-cyan-800/50 px-3 py-1 rounded-full">Oct 2024 – Present</span>
+          </div>
+          <p class="text-gray-300 font-medium mt-1">Cyberjeet Pvt Ltd, Bengaluru</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-200 list-disc list-inside">
+            <li>Performed in-depth vulnerability assessments and penetration testing leveraging OWASP Top 10 methodologies.</li>
+            <li>Executed 20+ VAPT projects covering infrastructure and web applications.</li>
+            <li>Conducted manual & automated testing to uncover XSS, SQLi, CSRF, broken authentication.</li>
+            <li>Developed comprehensive vulnerability reports with PoC exploits and remediation strategies.</li>
+            <li>Executed VAPT across Web, Mobile, AWS EC2, Active Directory, and Network Infrastructure.</li>
+            <li>Used tools: Burp Suite, Nmap, Nikto, Metasploit, OWASP ZAP, SQLMAP, CrackMapExec, Mimikatz, Subfinder, httpx, Nuclei, Nessus, Qualys, Ettercap, Hashcat, Responder, Winpeas, Linpeas, Bloodhound, Impacket, Recon_Ninja, MobSF, jadx, Dex2jar, ADB, APKtool.</li>
           </ul>
         </div>
 
-        <!-- Key Achievements moved here -->
-        <div class="mt-4 pt-3 border-t border-gray-700">
-          <p class="text-xs uppercase tracking-wide text-cyan-400 font-semibold">🏆 Key Achievements:</p>
-          <ul class="text-sm space-y-1 mt-1">
-            <li>✓ Participated in <strong>CERT-In</strong> web application security assessment, identifying <strong>30+ vulnerabilities</strong>.</li>
-            <li>✓ Conducted <strong>Nessus</strong> Professional training for <strong>CPRI</strong> (Central Power Research Institute) Security Team.</li>
-            <li>✓ Performed onsite network VAPT assessments to identify exploitable vulnerabilities across internal infrastructure.</li>
-            <li>✓ Enabled organizations to meet compliance standards by mitigating high‑risk vulnerabilities.</li>
-          </ul>
-        </div>
+        <!-- Right Side: Wazuh + Key Achievements -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-cyan-300"><i class="fas fa-chart-line mr-2"></i> Wazuh Security Monitoring</h3>
+            <ul class="mt-3 space-y-2 text-sm text-gray-200 list-disc list-inside">
+              <li>Deployed and configured Wazuh for SIEM, log monitoring, and threat detection.</li>
+              <li>Developed custom rules to detect specific threats and ensure compliance.</li>
+              <li>Integrated Wazuh with other security tools to improve incident response.</li>
+              <li>Improved system visibility through comprehensive logging and monitoring.</li>
+              <li>Streamlined security operations through tool integration and automation.</li>
+            </ul>
+          </div>
 
-        <!-- Stats moved below achievements -->
-        <div class="mt-5 grid grid-cols-2 gap-3 text-center text-xs font-mono">
-          <div class="bg-black/30 p-2 rounded"><span class="text-cyan-300">20+</span><br>VAPT projects</div>
-          <div class="bg-black/30 p-2 rounded"><span class="text-cyan-300">30+</span><br>Vulnerabilities (CERT-In)</div>
+          <!-- Key Achievements moved here -->
+          <div class="mt-4 pt-3 border-t border-gray-700">
+            <p class="text-xs uppercase tracking-wide text-cyan-400 font-semibold">🏆 Key Achievements:</p>
+            <ul class="text-sm space-y-1 mt-1">
+              <li>✓ Participated in <strong>CERT-In</strong> web application security assessment, identifying <strong>30+ vulnerabilities</strong>.</li>
+              <li>✓ Conducted <strong>Nessus</strong> Professional training for <strong>CPRI</strong> (Central Power Research Institute) Security Team.</li>
+              <li>✓ Performed onsite network VAPT assessments to identify exploitable vulnerabilities across internal infrastructure.</li>
+              <li>✓ Enabled organizations to meet compliance standards by mitigating high‑risk vulnerabilities.</li>
+            </ul>
+          </div>
+
+          <!-- Stats moved below achievements -->
+          <div class="mt-5 grid grid-cols-2 gap-3 text-center text-xs font-mono">
+            <div class="bg-black/30 p-2 rounded"><span class="text-cyan-300">20+</span><br>VAPT projects</div>
+            <div class="bg-black/30 p-2 rounded"><span class="text-cyan-300">30+</span><br>Vulnerabilities (CERT-In)</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
   <!-- Tabbed Showcase: Professional Projects | Personal Tools | Certificates -->
   <section id="showcase" class="py-16 px-5">
     <div class="max-w-6xl mx-auto">
@@ -362,43 +386,42 @@
         <button class="tab-btn px-6 py-2 rounded-full border border-cyan-400 text-cyan-300 font-semibold transition" data-tab="tab3">🎓 Certificates</button>
       </div>
 
-      <!-- Tab 1: Professional Projects (Swiper with unique navigation) -->
+      <!-- Tab 1: Professional Projects -->
       <div id="tab1" class="tab-content active-tab">
-  <div class="swiper professional-swiper" style="position: relative; padding: 0 40px;">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="glass-card p-6 rounded-2xl h-full flex flex-col md:flex-row gap-6 items-start md:items-center">
-          <div class="w-full md:w-1/2 h-64 md:h-80 overflow-hidden rounded-2xl bg-gray-900/50 flex-shrink-0">
-            <img src="assets/img/Web_VAPT.jpg" alt="Web Application VAPT" class="w-full h-full object-cover object-center">
+        <div class="swiper professional-swiper" style="position: relative; padding: 0 40px;">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="glass-card p-6 rounded-2xl h-full flex flex-col md:flex-row gap-6 items-start md:items-center">
+                <div class="w-full md:w-1/2 h-64 md:h-80 overflow-hidden rounded-2xl bg-gray-900/50 flex-shrink-0">
+                  <img src="assets/img/Web_VAPT.jpg" alt="Web Application VAPT" class="w-full h-full object-cover object-center">
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold text-cyan-300 mb-3">Web Application VAPT</h3>
+                  <p class="text-gray-300 mb-4">Performed comprehensive Vulnerability Assessment and Penetration Testing (VAPT) on web applications, identifying critical security flaws such as SQL Injection, XSS, CSRF, and authentication vulnerabilities using tools like Burp Suite, SQLMAP, and OWASP methodologies.</p>
+                  <a href="assets/pdf/Web_Vulnerability_Assessment_Report_Template.pdf" class="btn-cyber inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-semibold transition">Download Report <i class="fas fa-download"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="glass-card p-6 rounded-2xl h-full flex flex-col md:flex-row gap-6 items-start md:items-center">
+                <div class="w-full md:w-1/2 h-64 md:h-80 overflow-hidden rounded-2xl bg-gray-900/50 flex-shrink-0">
+                  <img src="assets/img/Infra_ VAPT.png" alt="Infrastructure VAPT" class="w-full h-full object-cover object-center">
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold text-cyan-300 mb-3">Infrastructure VAPT</h3>
+                  <p class="text-gray-300 mb-4">Conducted end-to-end Infrastructure Vulnerability Assessment and Penetration Testing, including network scanning, service enumeration, privilege escalation, and exploitation using tools like Nmap, Metasploit, Nessus, and Wireshark to identify and report security weaknesses.</p>
+                  <a href="assets/pdf/Infrastructure VAPT Report Template.pdf" class="btn-cyber inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-semibold transition">Download Report <i class="fas fa-download"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold text-cyan-300 mb-3">Web Application VAPT</h3>
-            <p class="text-gray-300 mb-4">Performed comprehensive Vulnerability Assessment and Penetration Testing (VAPT) on web applications, identifying critical security flaws such as SQL Injection, XSS, CSRF, and authentication vulnerabilities using tools like Burp Suite, SQLMAP, and OWASP methodologies.</p>
-            <a href="assets/pdf/Web_Vulnerability_Assessment_Report_Template.pdf" class="btn-cyber inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-semibold transition">Download Report <i class="fas fa-download"></i></a>
-          </div>
+          <div class="swiper-button-prev-pro"><i class="fas fa-chevron-left"></i></div>
+          <div class="swiper-button-next-pro"><i class="fas fa-chevron-right"></i></div>
+          <div class="swiper-pagination-pro"></div>
         </div>
       </div>
-      
-      <div class="swiper-slide">
-        <div class="glass-card p-6 rounded-2xl h-full flex flex-col md:flex-row gap-6 items-start md:items-center">
-          <div class="w-full md:w-1/2 h-64 md:h-80 overflow-hidden rounded-2xl bg-gray-900/50 flex-shrink-0">
-            <img src="assets/img/Infra_ VAPT.png" alt="Infrastructure VAPT" class="w-full h-full object-cover object-center">
-          </div>
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold text-cyan-300 mb-3">Infrastructure VAPT</h3>
-            <p class="text-gray-300 mb-4">Conducted end-to-end Infrastructure Vulnerability Assessment and Penetration Testing, including network scanning, service enumeration, privilege escalation, and exploitation using tools like Nmap, Metasploit, Nessus, and Wireshark to identify and report security weaknesses.</p>
-            <a href="assets/pdf/Infrastructure VAPT Report Template.pdf" class="btn-cyber inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-semibold transition">Download Report <i class="fas fa-download"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-button-prev-pro"><i class="fas fa-chevron-left"></i></div>
-    <div class="swiper-button-next-pro"><i class="fas fa-chevron-right"></i></div>
-    <div class="swiper-pagination-pro"></div>
-  </div>
-</div>
 
-      <!-- Tab 2: Personal Tools (Grid) -->
+      <!-- Tab 2: Personal Tools -->
       <div id="tab2" class="tab-content">
         <div class="grid md:grid-cols-2 gap-8">
           <div class="glass-card p-6 rounded-2xl transition-all">
@@ -435,7 +458,7 @@
         </div>
       </div>
 
-      <!-- Tab 3: Certificates (Swiper with unique navigation) -->
+      <!-- Tab 3: Certificates -->
       <div id="tab3" class="tab-content">
         <div class="swiper certificate-swiper" style="position: relative; padding: 0 40px;">
           <div class="swiper-wrapper">
@@ -464,7 +487,7 @@
     </div>
   </section>
 
-  <!-- Skills + Certifications + Education (unchanged) -->
+  <!-- Skills + Certifications + Education -->
   <section id="skills" class="py-20 px-5">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-2 gap-8">
@@ -512,7 +535,7 @@
     </div>
   </section>
 
-  <!-- Contact Section with AJAX Form -->
+  <!-- Contact Section with Sanitized Form -->
   <section id="contact" class="py-16 px-5">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-10">
@@ -538,11 +561,23 @@
           <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
             <input type="hidden" name="access_key" value="892e6cfe-1606-4475-80f9-f3092a218e98">
             <div class="grid md:grid-cols-2 gap-4">
-              <div><label class="contact__label">Name</label><input type="text" name="name" class="contact__input" required></div>
-              <div><label class="contact__label">Email</label><input type="email" name="email" class="contact__input" required></div>
+              <div>
+                <label class="contact__label">Name</label>
+                <input type="text" name="name" class="contact__input" required minlength="2" maxlength="100" pattern="[A-Za-z\s]{2,100}" title="Only letters and spaces (2-100 characters)">
+              </div>
+              <div>
+                <label class="contact__label">Email</label>
+                <input type="email" name="email" class="contact__input" required pattern="[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}" title="Enter a valid email address">
+              </div>
             </div>
-            <div><label class="contact__label">Project / Subject</label><input type="text" name="project" class="contact__input" required></div>
-            <div><label class="contact__label">Message</label><textarea name="message" rows="5" class="contact__input" required></textarea></div>
+            <div>
+              <label class="contact__label">Project / Subject</label>
+              <input type="text" name="project" class="contact__input" required minlength="2" maxlength="200" title="2-200 characters required">
+            </div>
+            <div>
+              <label class="contact__label">Message</label>
+              <textarea name="message" rows="5" class="contact__input" required minlength="5" maxlength="1000" title="Message must be between 5-1000 characters"></textarea>
+            </div>
             <button type="submit" class="btn-cyber w-full md:w-auto px-6 py-3 rounded-xl text-white font-bold shadow-lg flex items-center justify-center gap-2 transition">Send Message <i class="fas fa-paper-plane"></i></button>
             <div id="formStatus" class="text-sm text-center mt-3"></div>
           </form>
@@ -565,36 +600,42 @@
       toggle.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     });
 
-    // Initialize Swipers with unique navigation/pagination
+    // 3D Tilt Effect for Profile Image
+    const image3D = document.getElementById('profileImage3D');
+    if (image3D) {
+      image3D.addEventListener('mousemove', (e) => {
+        const rect = image3D.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * 15;
+        const rotateY = ((x - centerX) / centerX) * 15;
+        image3D.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      image3D.addEventListener('mouseleave', () => {
+        image3D.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    }
+
+    // Initialize Swipers
     const professionalSwiper = new Swiper('.professional-swiper', {
       loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next-pro',
-        prevEl: '.swiper-button-prev-pro',
-      },
-      pagination: {
-        el: '.swiper-pagination-pro',
-        clickable: true,
-      },
+      navigation: { nextEl: '.swiper-button-next-pro', prevEl: '.swiper-button-prev-pro' },
+      pagination: { el: '.swiper-pagination-pro', clickable: true },
       spaceBetween: 30,
       autoplay: { delay: 5000, disableOnInteraction: false },
     });
 
     const certificateSwiper = new Swiper('.certificate-swiper', {
       loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next-cert',
-        prevEl: '.swiper-button-prev-cert',
-      },
-      pagination: {
-        el: '.swiper-pagination-cert',
-        clickable: true,
-      },
+      navigation: { nextEl: '.swiper-button-next-cert', prevEl: '.swiper-button-prev-cert' },
+      pagination: { el: '.swiper-pagination-cert', clickable: true },
       spaceBetween: 30,
       autoplay: { delay: 4000, disableOnInteraction: false },
     });
 
-    // Tab switching logic (reinitialise swipers when tab becomes visible)
+    // Tab switching logic
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -605,8 +646,6 @@
         tabContents.forEach(c => c.classList.remove('active-tab'));
         btn.classList.add('active');
         document.getElementById(tabId).classList.add('active-tab');
-        
-        // Refresh swipers when their container becomes visible
         setTimeout(() => {
           if (tabId === 'tab1') professionalSwiper.update();
           if (tabId === 'tab3') certificateSwiper.update();
@@ -614,7 +653,51 @@
       });
     });
 
-    // AJAX form submission
+    // Input Sanitization Functions
+    function sanitizeInput(input) {
+      if (typeof input !== 'string') return '';
+      let sanitized = input.replace(/<[^>]*>/g, '');
+      sanitized = sanitized.replace(/on\w+\s*=\s*["'][^"']*["']/gi, '');
+      sanitized = sanitized.replace(/on\w+\s*=\s*[^\s>]*/gi, '');
+      sanitized = sanitized.replace(/javascript\s*:/gi, '');
+      sanitized = sanitized.replace(/vbscript\s*:/gi, '');
+      sanitized = sanitized.replace(/data\s*:/gi, '');
+      sanitized = sanitized.replace(/[<>]/g, '');
+      sanitized = sanitized.trim();
+      return sanitized;
+    }
+
+    function sanitizeEmail(email) {
+      let sanitized = email.replace(/[<>]/g, '');
+      sanitized = sanitized.replace(/javascript\s*:/gi, '');
+      sanitized = sanitized.trim();
+      const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+      if (!emailRegex.test(sanitized)) return '';
+      return sanitized;
+    }
+
+    function validateAndSanitizeForm(formData) {
+      const name = sanitizeInput(formData.get('name') || '');
+      const email = sanitizeEmail(formData.get('email') || '');
+      const project = sanitizeInput(formData.get('project') || '');
+      const message = sanitizeInput(formData.get('message') || '');
+      
+      if (!name || !email || !project || !message) {
+        return { valid: false, error: '⚠️ All fields are required.' };
+      }
+      if (name.length < 2 || name.length > 100) {
+        return { valid: false, error: '⚠️ Name must be 2-100 characters.' };
+      }
+      if (message.length < 5 || message.length > 1000) {
+        return { valid: false, error: '⚠️ Message must be 5-1000 characters.' };
+      }
+      if (project.length < 2 || project.length > 200) {
+        return { valid: false, error: '⚠️ Project/Subject must be 2-200 characters.' };
+      }
+      return { valid: true, sanitizedData: { name, email, project, message } };
+    }
+
+    // AJAX form submission with sanitization
     const form = document.getElementById('contactForm');
     const statusDiv = document.getElementById('formStatus');
     if (form) {
@@ -622,35 +705,59 @@
         e.preventDefault();
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
+        const formData = new FormData(form);
+        const validation = validateAndSanitizeForm(formData);
+        
+        if (!validation.valid) {
+          statusDiv.innerHTML = validation.error;
+          statusDiv.classList.add('text-red-400');
+          statusDiv.classList.remove('text-green-400');
+          setTimeout(() => {
+            statusDiv.style.opacity = '0';
+            setTimeout(() => { statusDiv.innerHTML = ''; statusDiv.style.opacity = '1'; statusDiv.classList.remove('text-red-400'); }, 500);
+          }, 4000);
+          return;
+        }
+        
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         statusDiv.innerHTML = '';
         statusDiv.className = 'text-sm text-center mt-3';
+        
         try {
-          const formData = new FormData(form);
+          const sanitizedFormData = new FormData();
+          sanitizedFormData.append('access_key', '892e6cfe-1606-4475-80f9-f3092a218e98');
+          sanitizedFormData.append('name', validation.sanitizedData.name);
+          sanitizedFormData.append('email', validation.sanitizedData.email);
+          sanitizedFormData.append('project', validation.sanitizedData.project);
+          sanitizedFormData.append('message', validation.sanitizedData.message);
+          
           const response = await fetch(form.action, {
             method: 'POST',
-            body: formData,
+            body: sanitizedFormData,
             headers: { 'Accept': 'application/json' }
           });
           const result = await response.json();
+          
           if (response.ok && result.success) {
             statusDiv.innerHTML = '✅ Message sent successfully! I\'ll get back to you soon.';
             statusDiv.classList.add('text-green-400');
+            statusDiv.classList.remove('text-red-400');
             form.reset();
           } else {
             throw new Error(result.message || 'Something went wrong');
           }
         } catch (error) {
-          statusDiv.innerHTML = '❌ Failed to send message. Please try again or email me directly.';
+          statusDiv.innerHTML = '❌ Failed to send. Please email me directly.';
           statusDiv.classList.add('text-red-400');
+          statusDiv.classList.remove('text-green-400');
         } finally {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
           setTimeout(() => {
             if (statusDiv.innerHTML) {
               statusDiv.style.opacity = '0';
-              setTimeout(() => { statusDiv.innerHTML = ''; statusDiv.style.opacity = '1'; }, 500);
+              setTimeout(() => { statusDiv.innerHTML = ''; statusDiv.style.opacity = '1'; statusDiv.classList.remove('text-green-400', 'text-red-400'); }, 500);
             }
           }, 5000);
         }
