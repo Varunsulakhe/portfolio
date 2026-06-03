@@ -1,427 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Varun Sulakhe | Cybersecurity Engineer & CEH v12</title>
-  <!-- Tailwind CSS + Font Awesome + Google Fonts -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * { font-family: 'Inter', sans-serif; }
-    body {
-      background: radial-gradient(circle at 10% 20%, rgba(10,20,30,1) 0%, #0a0c10 100%);
-      scroll-behavior: smooth;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    /* Light mode styles */
-    body.light-mode {
-      background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
-      color: #0f172a !important;
-    }
-    body.light-mode .glass-card {
-      background: rgba(255, 255, 255, 0.8) !important;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 150, 200, 0.3);
-      color: #0f172a !important;
-    }
-    body.light-mode .glass-card:hover {
-      border-color: #0891b2;
-      box-shadow: 0 20px 35px -12px rgba(0, 150, 200, 0.2);
-    }
-    body.light-mode .skill-tag {
-      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-      border-left-color: #0891b2;
-      color: #0f172a;
-    }
-    body.light-mode .btn-cyber {
-      background: linear-gradient(95deg, #0891b2, #06b6d4);
-    }
-    body.light-mode .text-gray-300,
-    body.light-mode .text-gray-200,
-    body.light-mode .text-gray-400,
-    body.light-mode p:not(.text-cyan-300),
-    body.light-mode li,
-    body.light-mode .home__description,
-    body.light-mode .about__description,
-    body.light-mode .portfolio__description,
-    body.light-mode .footer p,
-    body.light-mode .contact__subtitle,
-    body.light-mode span:not(.text-cyan-300):not(.text-cyan-400) {
-      color: #1e293b !important;
-    }
-    body.light-mode .text-cyan-300,
-    body.light-mode .text-cyan-400,
-    body.light-mode .text-cyan-200\/80 {
-      color: #0e7490 !important;
-    }
-    body.light-mode .bg-cyan-900\/40,
-    body.light-mode .bg-cyan-800\/50,
-    body.light-mode .bg-cyan-950\/30 {
-      background: rgba(0, 150, 200, 0.15) !important;
-    }
-    body.light-mode .border-cyan-400,
-    body.light-mode .border-cyan-500\/30 {
-      border-color: #0891b2 !important;
-    }
-    body.light-mode .bg-gray-800\/60 {
-      background: rgba(100, 116, 139, 0.15) !important;
-      color: #0f172a !important;
-    }
-    body.light-mode .bg-black\/30,
-    body.light-mode .bg-black\/50 {
-      background: rgba(0, 0, 0, 0.05) !important;
-    }
-    body.light-mode .contact__input {
-      background: white;
-      border-color: #cbd5e1;
-      color: #0f172a;
-    }
-    body.light-mode .contact__input:focus {
-      border-color: #0891b2;
-    }
-    body.light-mode .contact__label {
-      color: #0f172a;
-    }
-    body.light-mode .border-t,
-    body.light-mode .border-gray-800 {
-      border-color: #cbd5e1 !important;
-    }
-    body.light-mode .hero-gradient {
-      background: radial-gradient(ellipse at 30% 40%, rgba(0,150,200,0.08), transparent 70%);
-    }
-    body.light-mode .bg-cyan-600\/80 {
-      background: rgba(8, 145, 178, 0.8);
-    }
-    body.light-mode .bg-gray-800 {
-      background: #e2e8f0 !important;
-    }
-    body.light-mode .bg-gray-800:hover {
-      background: #cbd5e1 !important;
-    }
-    body.light-mode .bg-gray-800 a,
-    body.light-mode .bg-gray-800 i {
-      color: #0f172a !important;
-    }
-    /* Default dark mode */
-    .glass-card {
-      background: rgba(15, 25, 35, 0.65);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 255, 255, 0.15);
-      border-radius: 2rem;
-      transition: all 0.3s ease;
-    }
-    .glass-card:hover {
-      border-color: rgba(0, 255, 255, 0.5);
-      box-shadow: 0 20px 35px -12px rgba(0, 255, 255, 0.2);
-      transform: translateY(-4px);
-    }
-    .skill-tag {
-      background: linear-gradient(135deg, #0e2a3a, #0a1a24);
-      border-left: 3px solid #0ff;
-      transition: 0.2s;
-    }
-    .skill-tag:hover {
-      background: #0f3b4f;
-      transform: scale(1.02);
-    }
-    .btn-cyber {
-      background: linear-gradient(95deg, #0ff0, #0bf);
-      transition: 0.2s;
-    }
-    .btn-cyber:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 12px #0ff;
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0a121c; }
-    ::-webkit-scrollbar-thumb { background: #0ff; border-radius: 10px; }
-    .hero-gradient {
-      background: radial-gradient(ellipse at 30% 40%, rgba(0,180,220,0.15), transparent 70%);
-    }
-    .contact__input {
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 1rem;
-      padding: 0.75rem 1rem;
-      width: 100%;
-      color: white;
-      transition: 0.2s;
-    }
-    .contact__input:focus {
-      outline: none;
-      border-color: #0ff;
-      box-shadow: 0 0 8px rgba(0,255,255,0.3);
-    }
-    .contact__label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #a0f0ff;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="I'm Mrinmoy,and this is my personal portfolio website..">
+    <meta name="keywords" content="Mrinmoy, Mrinmoy Deka, mrinmoy ">
+
+    <!--==================== UNICONS ====================-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+    <!--==================== SWIPER CSS ====================-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+
+    <!--==================== CSS ====================-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>Portfolio</title>
+
+    <!--==================== Favicon ====================-->
+    <link rel="shortcut icon" href="assets/img/Icon2.png" type="image/png">
+
+    <!--==================== Animate on scroll CDN ====================-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 </head>
-<body class="text-gray-200">
 
-  <!-- Navigation -->
-  <nav class="fixed w-full z-50 bg-black/50 backdrop-blur-xl border-b border-cyan-500/30 shadow-lg">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-      <div class="flex justify-between items-center py-3">
-        <a href="#" class="text-2xl font-bold tracking-tighter bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">VARUN<span class="text-white">.SEC</span></a>
-        <div class="hidden md:flex space-x-8 text-sm font-semibold">
-          <a href="#home" class="hover:text-cyan-300 transition">Home</a>
-          <a href="#experience" class="hover:text-cyan-300 transition">Experience</a>
-          <a href="#projects" class="hover:text-cyan-300 transition">Projects</a>
-          <a href="#skills" class="hover:text-cyan-300 transition">Skills</a>
-          <a href="#contact" class="hover:text-cyan-300 transition">Contact</a>
-        </div>
-        <div class="flex items-center gap-3">
-          <button id="darkModeToggle" class="text-xl text-cyan-300 hover:text-white transition"><i class="fas fa-moon"></i></button>
-          <!-- View Resume - opens in new tab (no download) -->
-          <a href="assets/pdf/Varun_Sulakhe_Resume.pdf" target="_blank" class="hidden sm:inline-block btn-cyber shadow-lg px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm transition">View Resume</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body>
+    
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <h3>Portfolio</h3>
+            <div data-aos="fade-in" class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__items">
+                        <a href="#home" class="nav__link active-link">
+                            <i class="uil uil-estate nav__icon"></i> Home
+                        </a>
+                    </li>
 
-  <!-- Hero Section (with your image) -->
-  <section id="home" class="relative pt-32 pb-20 px-5 overflow-hidden hero-gradient">
-    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-      <div class="flex-1 text-center lg:text-left">
-        <div class="inline-block px-4 py-1 rounded-full bg-cyan-900/40 text-cyan-300 text-xs font-mono border border-cyan-500/40 mb-5">Certified Ethical Hacker (CEH v12)</div>
-        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight">
-          <span class="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">Varun</span><br>
-          <span class="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">Sulakhe</span>
-        </h1>
-        <p class="text-xl text-cyan-200/80 mt-3 font-medium">Cybersecurity Engineer | VAPT Engineer | Red Teaming</p>
-        <p class="text-gray-300 max-w-xl mt-5 leading-relaxed">1.7+ years hands‑on offensive security, 20+ VAPT assessments. I break things ethically to build stronger defenses.</p>
-        <div class="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
-          <a href="#contact" class="btn-cyber px-6 py-3 rounded-xl text-white font-bold shadow-lg flex items-center gap-2"><i class="fas fa-paper-plane"></i> Contact Me</a>
-          <!-- Download Resume (downloads the file) -->
-          <a href="assets/pdf/Varun_Sulakhe_Resume.pdf" download class="border border-cyan-400 text-cyan-300 px-6 py-3 rounded-xl font-semibold hover:bg-cyan-950/50 transition flex items-center gap-2"><i class="fas fa-download"></i> Download Resume</a>
-          <a href="https://github.com/Varunsulakhe" target="_blank" class="text-gray-300 bg-gray-800/50 p-3 rounded-full hover:text-cyan-300 transition"><i class="fab fa-github text-xl"></i></a>
-          <a href="https://www.linkedin.com/in/varun-sulakhe-7072b226a" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition"><i class="fab fa-linkedin-in text-xl"></i></a>
-        </div>
-        <div class="flex flex-wrap gap-6 justify-center lg:justify-start mt-8 text-sm text-gray-300">
-          <span><i class="far fa-envelope text-cyan-400 mr-2"></i> varunsulakhe564@gmail.com</span>
-          <span><i class="fas fa-phone-alt text-cyan-400 mr-2"></i> +91-6360340775</span>
-        </div>
-      </div>
-      <!-- Your Image Container -->
-      <div class="flex-1 flex justify-center">
-        <div class="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full border-4 border-cyan-500/30 bg-gradient-to-br from-cyan-900/40 to-transparent flex items-center justify-center backdrop-blur-md shadow-2xl overflow-hidden">
-          <img src="assets/img/Varun Sulakhe.jpeg" alt="Varun Sulakhe" class="w-full h-full object-cover rounded-full">
-          <div class="absolute -bottom-3 -right-3 bg-cyan-500 rounded-full p-2"><i class="fas fa-terminal text-black"></i></div>
-        </div>
-      </div>
-    </div>
-    <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
-  </section>
+                    <li class="nav__items">
+                        <a href="#about" class="nav__link ">
+                            <i class="uil uil-user nav__icon"></i> About
+                        </a>
+                    </li>
 
-  <!-- Profile Summary -->
-  <div class="max-w-5xl mx-auto px-5 -mt-8 relative z-10">
-    <div class="glass-card p-6 lg:p-8 rounded-2xl">
-      <h2 class="text-2xl font-bold flex items-center gap-2"><i class="fas fa-user-secret text-cyan-400"></i> Profile Summary</h2>
-      <p class="text-gray-300 mt-3 leading-relaxed">Certified Ethical Hacker with 1.7+ years of hands-on experience in VAPT across web and network environments. Successfully executed 20+ security assessments, uncovering critical vulnerabilities and delivering actionable remediation. Skilled in offensive security, red teaming using tools like Burp Suite, Metasploit, Nessus, Nmap and OWASP ZAP. Focused about strengthening cyber defenses through real-world attack simulations and risk-based security strategies.</p>
-    </div>
-  </div>
+                    <li class="nav_items">
+                        <a href="#skills" class="nav__link ">
+                            <i class="uil uil-file nav__icon"></i> Skills
+                        </a>
+                    </li>
 
-  <!-- Experience Section -->
-  <section id="experience" class="py-20 px-5">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold"><span class="border-b-4 border-cyan-400 pb-1">Professional Experience</span></h2>
-        <p class="text-gray-400 mt-3">Real-world impact & achievements</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass-card p-6 rounded-2xl">
-          <div class="flex justify-between items-start flex-wrap gap-2">
-            <h3 class="text-xl font-bold text-cyan-300">Cyber Security Engineer</h3>
-            <span class="text-xs bg-cyan-800/50 px-3 py-1 rounded-full">Oct 2024 – Present</span>
-          </div>
-          <p class="text-gray-300 font-medium mt-1">Cyberjeet Pvt Ltd, Bengaluru</p>
-          <ul class="mt-4 space-y-2 text-sm text-gray-200 list-disc list-inside">
-            <li>Performed in-depth vulnerability assessments and penetration testing leveraging OWASP Top 10 methodologies.</li>
-            <li>Executed 20+ VAPT projects covering infrastructure and web applications.</li>
-            <li>Conducted manual & automated testing to uncover XSS, SQLi, CSRF, broken authentication.</li>
-            <li>Developed comprehensive vulnerability reports with PoC exploits and remediation strategies.</li>
-            <li>Executed VAPT across Web, Mobile, AWS EC2, Active Directory, and Network Infrastructure.</li>
-            <li>Used tools: Burp Suite, Nmap, Nikto, Metasploit, OWASP ZAP, SQLMAP, CrackMapExec, Mimikatz, Subfinder, httpx, Nuclei, Nessus, Qualys, Ettercap, Hashcat, Responder, Winpeas, Linpeas, Bloodhound, Impacket, Recon_Ninja, MobSF, jadx, Dex2jar, ADB, APKtool.</li>
-          </ul>
-          <div class="mt-4 pt-3 border-t border-gray-700">
-            <p class="text-xs uppercase tracking-wide text-cyan-400 font-semibold">🏆 Key Achievements:</p>
-            <ul class="text-sm space-y-1 mt-1">
-              <li>✓ Participated in <strong>CERT-In</strong> web application security assessment, identifying <strong>30+ vulnerabilities</strong>.</li>
-              <li>✓ Conducted <strong>Nessus</strong> Professional training for <strong>CPRI</strong> (Central Power Research Institute) Security Team.</li>
-              <li>✓ Performed onsite network VAPT assessments to identify exploitable vulnerabilities across internal infrastructure.</li>
-              <li>✓ Enabled organizations to meet compliance standards by mitigating high‑risk vulnerabilities.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
-          <div>
-            <h3 class="text-xl font-bold text-cyan-300"><i class="fas fa-chart-line mr-2"></i> Wazuh Security Monitoring</h3>
-            <ul class="mt-3 space-y-2 text-sm text-gray-200 list-disc list-inside">
-              <li>Deployed and configured Wazuh for SIEM, log monitoring, and threat detection.</li>
-              <li>Developed custom rules to detect specific threats and ensure compliance.</li>
-              <li>Integrated Wazuh with other security tools to improve incident response.</li>
-              <li>Improved system visibility through comprehensive logging and monitoring.</li>
-              <li>Streamlined security operations through tool integration and automation.</li>
-            </ul>
-            <div class="mt-5 grid grid-cols-2 gap-3 text-center text-xs font-mono">
-              <div class="bg-black/30 p-2 rounded"><span class="text-cyan-300">20+</span><br>VAPT projects</div>
-              <div class="bg-black/30 p-2 rounded"><span class="text-cyan-300">30+</span><br>Vulnerabilities (CERT-In)</div>
+                    <li class="nav__items">
+                        <a href="#Certificates" class="nav__link ">
+                            <i class="uil uil-briefcase-alt nav__icon"></i> Certificates
+                        </a>
+                    </li> 
+
+                    <li class="nav__items">
+                        <a href="#projects" class="nav__link ">
+                            <i class="uil uil-scenery nav__icon"></i> Projects
+                        </a>
+                    </li>
+
+                    <li class="nav__items">
+                        <a href="#tools" class="nav__link ">
+                            <i class="uil uil-scenery nav__icon"></i> Tools
+                        </a>
+                    </li>
+
+                    <li class="nav__items">
+                        <a href="#contact" class="nav__link ">
+                            <i class="uil uil-message nav__icon"></i> Contact me
+                        </a>
+                    </li>
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
             </div>
-          </div>
+
+            <div class="nav__btns">
+                <!--Theme Change button-->
+                <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home section" id="home">
+            <div data-aos="fade-left" class="home__container container grid">
+                <div class="home__content grid">
+                    <div class="home__social">
+                        <a href="https://www.linkedin.com/in/varun-sulakhe-7072b226a" target="_blank" class="home__social-icon">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                        <a href="https://github.com/Varunsulakhe" target="_blank" class="home__social-icon">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://x.com/VarunSulakhe?t=MlfqBBPOp1hCoCDjq_5IVQ&s=08" target="_blank" class="home__social-icon">
+                            <i class="uil uil-twitter-alt"></i>
+                        </a>
+                        <a href="https://www.instagram.com/varun_sulakhe?utm_source=qr&igsh=Nnhta2hjYnpqM2tu"
+                            target="_blank" class="home__social-icon">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+                    </div>
+
+                    <div data-aos="fade-right" class="home__img">
+                        <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <mask id="mask0" mask-type="alpha">
+                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                                130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                                97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                                0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                            </mask>
+                            <g mask="url(#mask0)">
+                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                                165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                                129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                                -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+
+                                <image class="home__blob-img" x="-85" y="-35" href="assets/img/Varun.png" />
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="home__data">
+                        <h1 class="home_title">Hi!<span class="wave">👋</span>, I'M VARUN SULAKHE</h1>
+                        <h3 class="home__subtitle">
+                            and I'm <span class="auto-input"></span>
+                        </h3>
+                        <p class="home__description">
+                            "I am eager to take on challenging opportunities in a 
+                            reputed organization where I can further develop my skills, 
+                            deepen my expertise, and apply my knowledge to create impactful
+                            solutions while advancing my professional growth."
+                        </p>
+                        <a href="#contact" class="button button--flex">
+                            Hire Me<i class="uil uil-message button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-button button--flex">
+                        <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                        <span class="home__scroll-name"> Scroll down</span>
+                        <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+            <h2 class="section__title">About Me</h2>
+            <span class="section__subtitle"> My Introduction</span>
+
+            <div data-aos="fade-left" class="about__container container grid">
+                <img src="assets/img/about.jpg" alt="" class="about__img" />
+
+                <div class="about__data">
+                    <p class="about__description">
+                        "Cybersecurity professional with 1.5 years of hands-on experience in Web and Infrastructure VAPT, 
+                        having completed 20+ security assessment projects including onsite infrastructure testing. 
+                        Passionate about identifying vulnerabilities and strengthening enterprise security posture 
+                        through offensive security techniques." 
+                    </p>
+
+                    <div class="about__buttons">
+                        <a download="" href="assets/pdf/Varun_Sulakhe_Resume.pdf" class="button button--flex">
+                            Download CV <i class="uil uil-download-alt button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+    <!--==================== SKILLS ====================-->
+        <section class="skills section" id="skills">
+            <h2 class="section__title">Skills</h2>
+            <span class="section__subtitle">My technical level</span>
+
+            <div data-aos="fade-up" class="skills__container container grid" style="grid-template-columns: 1fr;">
+                <div>
+                    <!--==================== SKILL - All Tools in one box ====================-->
+                    <div class="skills__content skills__open">
+                        <div class="skills__header">
+                            <i class="uil uil-shield-check skills__icon"></i>
+                            <div>
+                                <h1 class="skills__title">VAPT Tools</h1>
+                                <span class="skills__subtitle">1.5 years of experience</span>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 2rem;">
+
+                            <!-- LEFT COLUMN - 10 tools -->
+                            <div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Nmap</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Nikto</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Metasploit</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>OWASP ZAP</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>SQLMAP</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>CrackMapExec</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Mimikatz</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Sublist3r</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Ettercap</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Hashcat</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT COLUMN - remaining 7 tools -->
+                            <div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Responder</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Winpeas</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Linpeas</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Bloodhound</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Impacket</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Recon_Ninja</h3>
+                                    </div>
+                                </div>
+                                <div class="skills__data">
+                                    <div class="skills__titles">
+                                        <h3 class="skills__name"><i class="uil uil-shield" style="margin-right:6px;color:var(--first-color)"></i>Mobile Security Framework (MobSF)</h3>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+        <!--==================== Certificates ====================-->
+        <section class="certificate section" id="Certificates">
+            <h2 class="section__title">My Certificates</h2>
+            <span class="section__subtitle"></span>
+            <span class="section__subtitle">Scroll or slide here to see next>>></span>
+
+            <div data-aos="" class="portfolio__container container swiper-container">
+                <div class="swiper-wrapper">
+                    <!--==================== Certificate 1 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/CEH_Certificate.jpeg" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <p>Ethical Hacking Certificate</p>
+                            <a href="assets/pdf/CEH_Certificate.pdf" target="_blank"
+                                class="button button--flex button--small portfolio_-button">
+                                Preview
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!--==================== Certificate 2 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/Internship_Certificate.jpg" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <p>Internship Certificate</p>
+                            <a href="assets/pdf/Internship_Certificate.pdf" target="_blank"
+                                class="button button--flex button--small portfolio_-button">
+                                Preview
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== PORTFOLIO ====================-->
+        <section class="portfolio section" id="projects">
+            <h2 class="section__title">Projects</h2>
+            <span class="section__subtitle">Most recent work</span>
+
+            <div data-aos="fade-right" class="portfolio__container container swiper-container">
+                <div class="swiper-wrapper">
+
+                    <!--==================== PORTFOLIO 1 - Web Application VAPT ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/Web_VAPT.jpg" alt="Web Application VAPT" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Web Application VAPT</h3>
+                            <p class="portfolio__description">Performed comprehensive Vulnerability Assessment and Penetration Testing (VAPT) on web applications, identifying critical security flaws such as SQL Injection, XSS, CSRF, and authentication vulnerabilities using tools like Burp Suite, SQLMAP, and OWASP methodologies.</p>
+                            <a href="assets/pdf/Web_Vulnerability_Assessment_Report_Template.pdf" class="button button--flex button--small portfolio_-button">
+                                Download Report
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--==================== PORTFOLIO 2 - Infra VAPT ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/Infra_ VAPT.png" alt="Infrastructure VAPT" class="portfolio__img">
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Infrastructure VAPT</h3>
+                            <p class="portfolio__description">Conducted end-to-end Infrastructure Vulnerability Assessment and Penetration Testing, including network scanning, service enumeration, privilege escalation, and exploitation using tools like Nmap, Metasploit, Nessus, and Wireshark to identify and report security weaknesses.</p>
+                            <a href="assets/pdf/Infrastructure VAPT Report Template.pdf" class="button button--flex button--small portfolio_-button">
+                                Download Report
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Add Arrows -->
+                <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                </div>
+
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+                    
+        <!--==================== TOOLS ====================-->
+<section class="portfolio section" id="tools">
+    <h2 class="section__title">Tools I've Built</h2>
+    <span class="section__subtitle">Open-source security tools</span>
+
+    <div data-aos="fade-up" style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+
+        <!--==================== TOOL 1 - HTML Injector ====================-->
+        <div style="flex:1; min-width:280px; max-width:420px; border-radius:1rem; overflow:hidden; background:var(--container-color); box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+            <div style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding:2.5rem 1.5rem; text-align:center;">
+                <i class="uil uil-bug" style="font-size:4rem; color:#e94560; display:block; margin-bottom:0.75rem;"></i>
+                <h5 style="color:#fff; font-weight:700; letter-spacing:1.5px; margin:0;">HTML INJECTOR</h5>
+                <div style="display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:center; margin-top:0.75rem;">
+                    <span style="background:rgba(233,69,96,0.25); border:1px solid #e94560; border-radius:20px; padding:3px 12px; font-size:0.7rem; color:#fff;">Python</span>
+                    <span style="background:rgba(233,69,96,0.25); border:1px solid #e94560; border-radius:20px; padding:3px 12px; font-size:0.7rem; color:#fff;">Multi-threading</span>
+                    <span style="background:rgba(233,69,96,0.25); border:1px solid #e94560; border-radius:20px; padding:3px 12px; font-size:0.7rem; color:#fff;">Crawler</span>
+                    <span style="background:rgba(233,69,96,0.25); border:1px solid #e94560; border-radius:20px; padding:3px 12px; font-size:0.7rem; color:#fff;">WAF Bypass</span>
+                </div>
+            </div>
+            <div style="padding:1.5rem; display:flex; flex-direction:column;">
+                <h5 style="color:var(--title-color); font-weight:700;">HTML Injector</h5>
+                <p style="color:var(--text-color); font-size:0.9rem; line-height:1.7;">
+                    HTML Injector is a powerful, feature-rich security testing tool designed to identify HTML injection vulnerabilities in web applications. With comprehensive crawling capabilities, multi-threading support, and extensive header/cookie management, this tool provides thorough security assessments for modern web applications.
+                </p>
+                <ul style="color:var(--text-color); font-size:0.82rem; padding-left:1.2rem; margin-bottom:1.25rem;">
+                    <li>✅Advanced crawling — up to 300+ pages</li>
+                    <li>✅Multi-threading for faster parallel scans</li>
+                    <li>✅Custom User-Agent to bypass WAF filters</li>
+                    <li>✅Color-coded console + JSON output</li>
+                </ul>
+                <a href="https://github.com/Varunsulakhe/HTML-INJECTOR" target="_blank" class="button button--flex button--small portfolio_-button" style="align-self:flex-start;">
+                    View on GitHub <i class="uil uil-github-alt button__icon"></i>
+                </a>
+            </div>
+        </div>
+
+        <!--==================== TOOL 2 - Recon Ninja ====================-->
+        <div style="flex:1; min-width:280px; max-width:420px; border-radius:1rem; overflow:hidden; background:var(--container-color); box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+            <div style="background:linear-gradient(135deg, #0d1b2a 0%, #1b2838 50%, #0a3d1f 100%); padding:2.5rem 1.5rem; text-align:center;">
+                <i class="uil uil-search" style="font-size:4rem; color:#00ff88; display:block; margin-bottom:0.75rem;"></i>
+                <h5 style="color:#fff; font-weight:700; letter-spacing:1.5px; margin:0;">RECON NINJA</h5>
+                <div style="display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:center; margin-top:0.75rem;">
+                    <span style="background:rgba(0,255,136,0.15); border:1px solid #00ff88; border-radius:20px; padding:3px 12px; font-size:0.7rem; color:#fff;">Bug Bounty</span>
+                    <span style="background:rgba(0,255,136,0.15); border:1px solid #00ff88; border-radius:20px; padding:3px 12px; font-size:0.7rem; color:#fff;">Recon</span>
+                    <span style="background:rgba(0,255,136,0.15); border:1px solid #00ff88; border-radius:20px; padding:3px 12px; font-size:0.7rem; color:#fff;">Nuclei</span>
+                    <span style="background:rgba(0,255,136,0.15); border:1px solid #00ff88; border-radius:20px; padding:3px 12px; font-size:0.7rem; color:#fff;">Automation</span>
+                </div>
+            </div>
+            <div style="padding:1.5rem; display:flex; flex-direction:column;">
+                <h5 style="color:var(--title-color); font-weight:700;">Recon Ninja</h5>
+                <p style="color:var(--text-color); font-size:0.9rem; line-height:1.7;">
+                    Recon_Ninja is a powerful and modular automated recon tool designed to streamline the bug bounty hunting and web reconnaissance process. It automates essential tasks like subdomain enumeration, JS file discovery, parameter harvesting, and vulnerability filtering (XSS, SQLi, LFI, Open Redirect), while integrating with Nuclei for fast template-based vulnerability detection.
+                </p>
+                <ul style="color:var(--text-color); font-size:0.82rem; padding-left:1.2rem; margin-bottom:1.25rem;">
+                    <li>✅Subdomain enum via Subfinder + live detection</li>
+                    <li>✅Filters for XSS, SQLi, LFI, Open Redirect</li>
+                    <li>✅JS file extraction using Katana</li>
+                    <li>✅Nuclei template-based vuln scanning</li>
+                </ul>
+                <a href="https://github.com/Varunsulakhe/Recon_Ninja" target="_blank" class="button button--flex button--small portfolio_-button" style="align-self:flex-start;">
+                    View on GitHub <i class="uil uil-github-alt button__icon"></i>
+                </a>
+            </div>
+        </div>
+
     </div>
-  </section>
+</section>
 
-  <!-- Projects & Tools -->
-  <section id="projects" class="py-16 px-5 bg-black/20">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold"><span class="border-b-4 border-cyan-400 pb-1">Offensive Tooling & Projects</span></h2>
-        <p class="text-gray-400 mt-2">Automation, reconnaissance, and exploitation tools built for bug bounty & VAPT</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass-card p-6 rounded-2xl transition-all">
-          <div class="flex items-center gap-3 flex-wrap">
-            <i class="fab fa-python text-3xl text-cyan-300"></i>
-            <h3 class="text-2xl font-bold">Recon_Ninja</h3>
-            <span class="text-xs bg-cyan-900/50 px-2 py-1 rounded-full">Advanced Bug Bounty Recon Automation</span>
-          </div>
-          <p class="text-gray-300 mt-3">Python-based reconnaissance tool integrating Subfinder, httpx, waybackurls, gau, gf, nuclei, katana, and custom filters. Supports single domain and bulk recon mode. Generates vulnerability findings using custom Nuclei templates.</p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">#multithreading</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">#bulk-recon</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">#nuclei-templates</span>
-          </div>
-          <div class="mt-5">
-            <a href="https://github.com/Varunsulakhe/Recon_Ninja" target="_blank" class="text-cyan-300 hover:text-white text-sm"><i class="fab fa-github"></i> Explore Tool →</a>
-          </div>
+<!--==================== PROJECT IN MIND ====================-->
+        <section class="project section">
+            <div data-aos="fade-in" class="project__bg">
+                <div class="project__container container grid">
+                    <div class="project__data">
+                        <h2 class="project__title">You have a new project</h2>
+                        <p class="project__description">Contact me now on your new project.</p>
+                        <a href="#contact" class="button button--flex button--white">
+                            Contact Me
+                            <i class="uil uil-message project__icon button__icon"></i>
+                        </a>
+                    </div>
+
+                    <img src="assets/img/project.png" alt="" class="project__img">
+                </div>
+            </div>
+        </section>
+        <!--==================== CONTACT ME ====================-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Contact Me</h2>
+            <span class="section__subtitle">Get in touch</span>
+
+            <div data-aos="fade-in" class="contact__container container grid">
+                <div>
+                    <div class="contact__information">
+                        <i class="uil uil-envelope contact__icon "></i>
+                        <!--home__social-->
+                        <div>
+                            <h3 class="contact__title">Email</h3>
+                            <span class="contact__subtitle">varunsulakhe564@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="contact__information">
+                        <i class="uil uil-github-alt contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">Github</h3>
+                            <span class="contact__subtitle">https://github.com/Varunsulakhe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact__form grid">
+
+    <input type="hidden" name="access_key" value="892e6cfe-1606-4475-80f9-f3092a218e98">
+
+    <div class="contact__inputs grid">
+        <div class="contact__content">
+            <label class="contact__label">Name</label>
+            <input name="name" type="text" class="contact__input" required>
         </div>
-        <div class="glass-card p-6 rounded-2xl">
-          <div class="flex items-center gap-3">
-            <i class="fas fa-code-branch text-3xl text-cyan-300"></i>
-            <h3 class="text-2xl font-bold">HTML Injection Scanner</h3>
-          </div>
-          <p class="text-gray-300 mt-3">CLI-based Python tool designed to detect HTML Injection vulnerabilities using crawling, payload fuzzing, and filtering. Supports deep crawling (up to 200 URLs), custom payloads, multi-threading, and JSON/CSV export.</p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">#custom-payloads</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">#deep-crawl</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">#reporting</span>
-          </div>
-          <div class="mt-5">
-            <a href="https://github.com/Varunsulakhe/HTML-INJECTOR" target="_blank" class="text-cyan-300 hover:text-white text-sm"><i class="fab fa-github"></i> Explore Tool →</a>
-          </div>
+
+        <div class="contact__content">
+            <label class="contact__label">Email</label>
+            <input name="email" type="email" class="contact__input" required>
         </div>
-      </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Skills + Certifications + Education -->
-  <section id="skills" class="py-20 px-5">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass-card p-6 rounded-2xl">
-          <h3 class="text-2xl font-bold mb-4"><i class="fas fa-microchip text-cyan-400"></i> Technical Skills</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag px-3 py-1.5 rounded-full text-xs font-mono">Penetration Testing: Metasploit, Burp Suite, OWASP ZAP, Wireshark, Nmap, Hydra, Nuclei, Nikto</span>
-            <span class="skill-tag px-3 py-1.5 rounded-full text-xs font-mono">Network Security: TCP/IP, Firewalls, VPNs, Load Balancer, WAF, SIEM</span>
-            <span class="skill-tag px-3 py-1.5 rounded-full text-xs font-mono">Vulnerability Assessment: Nessus, Rapid7, Qualys</span>
-            <span class="skill-tag px-3 py-1.5 rounded-full text-xs font-mono">Web App Security: OWASP Top 10, SQLi, RCE, XSS, CSRF, SSRF, LFI, Open Redirect</span>
-            <span class="skill-tag px-3 py-1.5 rounded-full text-xs font-mono">Operating Systems: Linux, Windows, Ubuntu</span>
-            <span class="skill-tag px-3 py-1.5 rounded-full text-xs font-mono">WAF Configuration & Management</span>
-            <span class="skill-tag px-3 py-1.5 rounded-full text-xs font-mono">Phishing & Social Engineering Defense</span>
-            <span class="skill-tag px-3 py-1.5 rounded-full text-xs font-mono">Open-Source Intelligence (OSINT)</span>
-          </div>
-          <div class="mt-6">
-            <h4 class="font-semibold text-cyan-200">Soft Skills</h4>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span>📄 Technical Report Writing</span><span>🧩 Problem-Solving</span><span>🗣️ Communication</span>
-              <span>🔍 Attention to Detail</span><span>🤝 Team Collaboration</span><span>⏱️ Multi-project Delivery</span>
-              <span>⏰ Time Management</span><span>⚖️ Ethical Judgment</span>
-            </div>
-          </div>
-        </div>
-        <div class="glass-card p-6 rounded-2xl space-y-6">
-          <div>
-            <h3 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-certificate text-cyan-400"></i> Certifications</h3>
-            <div class="mt-3 bg-cyan-950/30 p-3 rounded-xl border-l-4 border-cyan-400">
-              <p class="font-mono text-cyan-300">Certified Ethical Hacker (CEH v12) — EC-Council</p>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-graduation-cap text-cyan-400"></i> Education</h3>
-            <p class="font-semibold mt-2">Bachelor of Computer Applications (BCA)</p>
-            <p class="text-sm text-gray-300">Surana College Peenya, Bangalore | Sep 2020 – Aug 2023</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-language text-cyan-400"></i> Languages</h3>
-            <div class="flex flex-wrap gap-3 mt-2 text-sm">
-              <span>🇬🇧 English</span><span>🇮🇳 Kannada</span><span>🇮🇳 Marathi</span><span>🇮🇳 Telugu</span><span>🇮🇳 Hindi</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="contact__content">
+        <label class="contact__label">Project</label>
+        <input name="project" type="text" class="contact__input" required>
     </div>
-  </section>
 
-  <!-- Contact Section with Form -->
-  <section id="contact" class="py-16 px-5">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="text-4xl font-bold"><span class="border-b-4 border-cyan-400 pb-1">Get In Touch</span></h2>
-        <p class="text-gray-400 mt-3">I'd love to hear about your next project</p>
-      </div>
-      <div class="glass-card p-6 md:p-8 rounded-2xl">
-        <div class="grid md:grid-cols-2 gap-10">
-          <div>
-            <h3 class="text-2xl font-bold mb-4">Let's Connect</h3>
-            <p class="text-gray-300 mb-6">Red team assessments, VAPT consulting, or just a security chat — reach out.</p>
-            <div class="space-y-4">
-              <div class="flex items-center gap-4"><i class="far fa-envelope text-cyan-400 text-xl"></i><span>varunsulakhe564@gmail.com</span></div>
-              <div class="flex items-center gap-4"><i class="fas fa-phone-alt text-cyan-400 text-xl"></i><span>+91-6360340775</span></div>
-              <div class="flex items-center gap-4"><i class="fab fa-github text-cyan-400 text-xl"></i><span>github.com/Varunsulakhe</span></div>
-            </div>
-            <div class="mt-8 flex gap-4">
-              <a href="https://github.com/Varunsulakhe" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition"><i class="fab fa-github text-xl"></i></a>
-              <a href="https://www.linkedin.com/in/varun-sulakhe-7072b226a" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition"><i class="fab fa-linkedin-in text-xl"></i></a>
-              <a href="https://x.com/VarunSulakhe" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition"><i class="fab fa-twitter text-xl"></i></a>
-            </div>
-          </div>
-          <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
-            <input type="hidden" name="access_key" value="892e6cfe-1606-4475-80f9-f3092a218e98">
-            <div class="grid md:grid-cols-2 gap-4">
-              <div><label class="contact__label">Name</label><input type="text" name="name" class="contact__input" required></div>
-              <div><label class="contact__label">Email</label><input type="email" name="email" class="contact__input" required></div>
-            </div>
-            <div><label class="contact__label">Project / Subject</label><input type="text" name="project" class="contact__input" required></div>
-            <div><label class="contact__label">Message</label><textarea name="message" rows="5" class="contact__input" required></textarea></div>
-            <button type="submit" class="btn-cyber w-full md:w-auto px-6 py-3 rounded-xl text-white font-bold shadow-lg flex items-center justify-center gap-2 transition">Send Message <i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
-      </div>
+    <div class="contact__content">
+        <label class="contact__label">Message</label>
+        <textarea
+            name="message"
+            rows="7"
+            class="contact__input"
+            required></textarea>
     </div>
-  </section>
 
-  <footer class="text-center py-8 text-gray-500 text-sm border-t border-gray-800">
-    <p>© 2025 Varun Sulakhe — Ethical Hacker | Built with <i class="fas fa-heart text-cyan-500"></i> for offensive security</p>
-  </footer>
+    <button type="submit" class="button button--flex">
+        Send Message
+        <i class="uil uil-message button__icon"></i>
+    </button>
 
-  <!-- Dark Mode Toggle -->
-  <script>
-    const toggle = document.getElementById('darkModeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      const isLight = document.body.classList.contains('light-mode');
-      toggle.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-    });
-  </script>
+</form>
+              </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+        <div class="footer__bg">
+           
+            <div class="footer__container container grid">
+                <div>
+                    <img src="./assets/img/CEH_2E345519D3F7.png" style="cursor: not-allowed;" height="120" width="100" alt="badge">
+                
+                </div>
+                <div>
+                    <h1 class="footer__title">VARUN</h1>
+                    <span class="footer__subtitle">Certified Ethical Hacker(CEHv12)</span>
+                </div>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#Certificates" class="footer__link">Certificates</a>
+                    </li>
+                    <li> 
+                        <a href="#projects" class="footer__link">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="footer__link">About</a>
+                    </li>
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.instagram.com/varun_sulakhe?utm_source=qr&igsh=Nnhta2hjYnpqM2tu"
+                        target="_blank" class="footer__social">
+                        <i class="uil uil-instagram"></i>
+                    </a>
+
+                    <a href="https://github.com/Varunsulakhe" target="_blank" class="footer__social">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+
+                    <a href="https://x.com/VarunSulakhe?t=MlfqBBPOp1hCoCDjq_5IVQ&s=08" target="_blank" class="footer__social">
+                        <i class="uil uil-twitter-alt"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/varun-sulakhe-7072b226a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="footer__social">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                </div>
+            </div>
+            <p class="footer__copy">&copy; 2024 Varun | All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+    <!--==================== SCROLL TOP ====================-->
+    <div><a href="#" class="scrollup" id="scroll-up">
+            <i class="uil uil-arrow-up scrollup__icon"></i>
+        </a></div>
+
+    <!--==================== SWIPER JS ====================-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--==================== MAIN JS ====================-->
+    <script src="assets/js/main.js"></script>
+
+    <!--=================== Animated text ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed(".auto-input", {
+            strings: [
+                "a BCA Graduate",
+                "a Certified Ethical Hacker",
+            ],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true,
+        });
+    </script>
+
+    <!--=================== Animate scroll js ===============-->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 300,
+            duration: 2000
+        });
+    </script>
+
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
